@@ -1,0 +1,41 @@
+<ion-content class="login-content" [fullscreen]="true">
+
+  <div class="top-right-logo">
+    SPORTENDER
+  </div>
+
+  <div class="login-container">
+
+    <ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
+
+    <div class="center-logo">
+      SPORTENDER
+    </div>
+
+    <h2 class="title">Inicio</h2>
+
+    <div class="form-container">
+      <div class="input-group">
+        <span class="input-label">Usuario</span>
+        <ion-input type="text" class="custom-input" placeholder="Ingresa tu usuario"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Contraseña</span>
+        <ion-input type="password" class="custom-input" placeholder="Ingresa tu contraseña"></ion-input>
+      </div>
+
+      <ion-button expand="block" shape="round" class="login-button" (click)="doLogin()">
+        Iniciar sesión
+      </ion-button>
+    </div>
+
+    <div class="signup-section">
+      <p>¿No tienes cuenta?</p>
+      <ion-button fill="clear" shape="round" class="register-button" (click)="goToRegister()">
+        Regístrate
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

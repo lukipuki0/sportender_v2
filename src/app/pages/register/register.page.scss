@@ -1,0 +1,160 @@
+// Importar o definir variables globales si es necesario
+// O reutilizar las del login si están en un scope global/superior
+
+// Define tus colores si no están globales (ajusta estos valores)
+:host {
+    --sportender-background: #e8f5f3;
+    --sportender-green: #69c5b1;
+    --sportender-dark-text: #3a7c71;
+    --sportender-input-bg: #ffffff;
+    --sportender-input-border: #d0e0dd;
+     --sportender-dark-text: #3a7c71;
+     --sportender-input-text: #000000;
+  }
+  
+  ion-content.register-content {
+    --background: var(--sportender-background);
+    position: relative;
+  }
+  
+  .top-right-logo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+  }
+  
+  .register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; // Centra verticalmente si hay espacio
+    min-height: 100%; // Asegura que ocupe al menos toda la altura
+    padding: 40px 20px; // Más padding vertical
+    text-align: center;
+    box-sizing: border-box; // Incluye padding en la altura
+  }
+  
+  .title {
+    color: var(--sportender-dark-text);
+    font-weight: normal; // O bold si prefieres
+    font-size: 1.8em; // Un poco más grande
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--sportender-input-border); // Línea debajo del título
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 400px; // Limita ancho
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 400px; // Limita el ancho del formulario
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; // Espacio antes de la sección de login
+  }
+  
+  .input-group {
+    width: 100%;
+    margin-bottom: 12px; // Menos espacio entre inputs
+    text-align: left;
+  
+    .input-label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.85em;
+      color: var(--sportender-dark-text);
+      padding-left: 5px;
+    }
+  
+    .custom-input {
+      --background: var(--sportender-input-bg);
+      --border-radius: 10px;
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --border-color: var(--sportender-input-border);
+      --border-width: 1px;
+      --border-style: solid;
+      color: var(--sportender-input-text); // Color del texto
+      min-height: 40px; // Un poco menos altos
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  // Estilos para el item del checkbox
+  .terms-item {
+    --background: transparent; // Sin fondo blanco de item
+    --inner-padding-start: 0;
+    --padding-start: 0; // Alinea con los inputs
+     width: 100%; // Ocupa el ancho
+     margin-top: 5px;
+     margin-bottom: 20px; // Espacio antes del botón
+  
+    ion-checkbox {
+      --size: 20px;
+      --checkbox-background-checked: var(--sportender-green);
+      --border-color: var(--sportender-input-border); // Borde normal
+      --border-color-checked: var(--sportender-green); // Borde cuando está chequeado
+      margin-right: 10px; // Espacio entre checkbox y label
+    }
+  
+    ion-label {
+      font-size: 0.9em;
+      color: var(--sportender-dark-text);
+    }
+  }
+  
+  // Estilo común para botones de acción
+  .action-button {
+    --border-radius: 25px;
+    height: 45px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 280px; // Ancho máximo para botones
+  }
+  
+  // Botón Crear Cuenta (parece sólido en el diseño)
+  .create-button {
+    --background: var(--sportender-green);
+    --background-activated: #5ab4a1;
+    --color: white;
+    margin-bottom: 30px; // Espacio antes de la sección de login
+  }
+  
+  // Botón Iniciar Sesión (también parece sólido)
+  .login-button {
+     --background: var(--sportender-green);
+    --background-activated: #5ab4a1;
+    --color: white;
+    // Ajustes si quieres que sea tipo 'clear' con borde
+    // --background: transparent;
+    // --border-color: var(--sportender-green);
+    // --border-width: 1px;
+    // --border-style: solid;
+    // --color: var(--sportender-green);
+  }
+  
+  
+  .login-section {
+    margin-top: 10px; // Espacio arriba
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  
+    p {
+      color: var(--sportender-dark-text);
+      margin-bottom: 5px;
+    }
+  }
+  
+  // Ocultar las líneas por defecto de ion-item si no se usan explícitamente
+  ion-item {
+    --inner-padding-end: 0;
+    --padding-start: 0;
+    --border-width: 0;
+    --inner-border-width: 0;
+  }

@@ -1,0 +1,56 @@
+<ion-content class="register-content" [fullscreen]="true">
+
+  <div class="top-right-logo">
+    SPORTENDER
+  </div>
+
+  <div class="register-container">
+
+    <h2 class="title">Registro</h2>
+
+    <div class="form-container">
+
+      <div class="input-group">
+        <span class="input-label">Correo electrónico</span>
+        <ion-input type="email" class="custom-input" placeholder="tucorreo@ejemplo.com" [(ngModel)]="email"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Nombre de usuario</span>
+        <ion-input type="text" class="custom-input" placeholder="Elige un nombre de usuario" [(ngModel)]="username"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Contraseña</span>
+        <ion-input type="password" class="custom-input" placeholder="Crea una contraseña" [(ngModel)]="password"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Confirmar contraseña</span>
+        <ion-input type="password" class="custom-input" placeholder="Confirma tu contraseña" [(ngModel)]="confirmPassword"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Rut</span>
+        <ion-input type="text" class="custom-input" placeholder="Ingresa tu Rut" [(ngModel)]="rut"></ion-input>
+      </div>
+
+      <ion-item lines="none" class="terms-item">
+        <ion-checkbox slot="start" [(ngModel)]="termsAccepted"></ion-checkbox>
+        <ion-label>Uso de terminos y condiciones</ion-label>
+      </ion-item>
+
+      <ion-button expand="block" shape="round" class="action-button create-button" (click)="doRegister()" [disabled]="!termsAccepted">
+        Crear cuenta
+      </ion-button>
+    </div>
+
+    <div class="login-section">
+      <p>¿Ya tienes cuenta?</p>
+      <ion-button fill="clear" shape="round" class="action-button login-button" (click)="goToLogin()">
+        Iniciar sesión
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

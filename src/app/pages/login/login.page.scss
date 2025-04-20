@@ -1,0 +1,133 @@
+// Define tus colores (ajusta estos valores a los exactos de tu diseño)
+:host {
+    --sportender-background: #e8f5f3; // Un verde muy pálido
+    --sportender-green: #69c5b1;    // Verde principal para botones/iconos
+    --sportender-dark-text: #3a7c71; // Texto oscuro (para logos/títulos)
+    --sportender-input-bg: #ffffff; // Fondo de inputs
+    --sportender-input-border: #d0e0dd; // Borde sutil para inputs
+  }
+  
+  ion-content.login-content {
+    --background: var(--sportender-background);
+    position: relative; // Necesario para posicionar el logo superior derecho
+  }
+  
+  .top-right-logo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .user-icon {
+    font-size: 6rem; // Tamaño grande para el ícono
+    color: var(--sportender-green);
+    margin-bottom: 10px;
+  }
+  
+  .center-logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+    margin-bottom: 15px;
+  }
+  
+  .title {
+    color: var(--sportender-dark-text);
+    font-weight: normal;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 350px; // Limita el ancho del formulario en pantallas grandes
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centra los elementos del formulario
+  }
+  
+  .input-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left; // Alinea la etiqueta a la izquierda
+  
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+      color: var(--sportender-dark-text); // O un gris más suave
+      padding-left: 5px; // Pequeño espacio a la izquierda
+    }
+  
+    .custom-input {
+      --background: var(--sportender-input-bg);
+      --border-radius: 10px; // Bordes redondeados
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --border-color: var(--sportender-input-border); // Color del borde
+      --border-width: 1px;
+      --border-style: solid;
+      min-height: 45px; // Altura mínima
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); // Sombra sutil opcional
+    }
+  }
+  
+  
+  .login-button {
+    --background: var(--sportender-green);
+    --background-activated: #5ab4a1; // Color al presionar
+    --border-radius: 25px; // Bordes bien redondeados
+    --color: white; // Texto blanco
+    margin-top: 15px;
+    height: 45px;
+    font-weight: bold;
+    width: 100%; // Ocupa el ancho del contenedor
+    max-width: 250px; // Limita el ancho del botón
+  }
+  
+  .signup-section {
+    margin-top: 40px; // Espacio considerable arriba
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    p {
+      color: var(--sportender-dark-text);
+      margin-bottom: 5px;
+    }
+  
+    .register-button {
+      --background: var(--sportender-green);
+      --background-activated: #5ab4a1;
+      --border-radius: 25px;
+      --color: white;
+      height: 45px;
+      font-weight: bold;
+      width: 100%;
+      max-width: 250px;
+      // Ajustes para que se vea como el diseño (parece un botón sólido, no clear)
+      --padding-start: 20px;
+      --padding-end: 20px;
+    }
+  }
+  
+  // Ocultar las líneas por defecto de ion-item si no se usan
+  ion-item {
+    --inner-padding-end: 0;
+    --padding-start: 0;
+    --border-width: 0;
+    --inner-border-width: 0;
+  }
