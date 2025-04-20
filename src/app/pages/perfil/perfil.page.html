@@ -1,13 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="main-toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button> </ion-buttons>
+    <div class="top-right-logo-main">SPORTENDER</div> </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<ion-content [fullscreen]="true" class="main-content">
+  <div class="profile-container">
+
+    <h2 class="title">Mi perfil</h2>
+
+    <div class="profile-picture-area">
+      <ion-icon name="person-circle-outline" class="profile-icon"></ion-icon>
+      <ion-button fill="clear" shape="circle" class="edit-picture-button" (click)="editProfilePicture()">
+        <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="info-container">
+
+      <div class="info-item">
+        <span class="info-label">Nombre y apellido</span>
+        <ion-item lines="none" class="info-data-item">
+          <ion-label class="info-data">{{ nombreApellido }}</ion-label>
+          <ion-button fill="clear" slot="end" class="edit-info-button" (click)="editField('nombreApellido')">
+            <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </div>
+
+       <div class="info-item">
+        <span class="info-label">Nombre de usuario</span>
+        <ion-item lines="none" class="info-data-item">
+          <ion-label class="info-data">{{ nombreUsuario }}</ion-label>
+           <ion-button fill="clear" slot="end" class="edit-info-button" (click)="editField('nombreUsuario')">
+            <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </div>
+
+       <div class="info-item">
+        <span class="info-label">Correo</span>
+        <ion-item lines="none" class="info-data-item">
+          <ion-label class="info-data">{{ correo }}</ion-label>
+           <ion-button fill="clear" slot="end" class="edit-info-button" (click)="editField('correo')">
+            <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </div>
+
+      <div class="info-item">
+        <span class="info-label">Teléfono</span>
+         <ion-item lines="none" class="info-data-item">
+          <ion-label class="info-data">{{ telefono }}</ion-label>
+           <ion-button fill="clear" slot="end" class="edit-info-button" (click)="editField('telefono')">
+            <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </div>
+
+      </div> </div> </ion-content>

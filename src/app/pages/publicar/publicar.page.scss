@@ -6,6 +6,7 @@
     --sportender-dark-text: #3a7c71;
     --sportender-input-bg: #ffffff;
     --sportender-input-border: #d0e0dd;
+    --sportender-input-text: #000000;
   }
   
   // Estilos generales y de toolbar/logos (similares a menu.page.scss)
@@ -88,7 +89,7 @@
       --border-style: solid;
       min-height: 45px; // Altura mínima inputs
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      color: var(--sportender-dark-text) !important;
+      color: var(--sportender-input-text) !important;
       --color: var(--sportender-dark-text) !important;
       --placeholder-color: var(--sportender-dark-text);
       --placeholder-opacity: 0.5; // Placeholder más suave
