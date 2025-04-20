@@ -1,0 +1,163 @@
+// Reutiliza o importa las variables de color
+:host {
+    --sportender-background: #e8f5f3;
+    --sportender-green: #69c5b1;
+    --sportender-dark-text: #3a7c71;
+    --sportender-input-bg: #ffffff;
+    --sportender-input-border: #d0e0dd;
+    --sportender-input-text: #000000;
+  }
+  
+  ion-content.preferences-content {
+    --background: var(--sportender-background);
+    position: relative;
+  }
+  
+  .top-right-logo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+  }
+  
+  .preferences-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; // Alinear arriba
+    min-height: 100%;
+    padding: 40px 20px 20px 20px; // Padding arriba y abajo
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .title {
+    color: var(--sportender-dark-text) !important;
+    font-weight: 600; // Un poco más bold
+    font-size: 1.8em;
+    margin-bottom: 5px; // Menos espacio
+  }
+  
+  .subtitle {
+    color: var(--sportender-dark-text) !important;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+  
+  .progress-indicator {
+    display: flex;
+    gap: 10px; // Espacio entre líneas
+    margin-bottom: 25px;
+  
+    span {
+      display: block;
+      width: 40px; // Ancho de cada línea
+      height: 4px; // Grosor
+      background-color: var(--sportender-input-border); // Color de fondo
+      border-radius: 2px;
+      // Podrías cambiar el color de algunos spans para indicar progreso
+      // &:nth-child(-n+2) { background-color: var(--sportender-green); }
+    }
+  }
+  
+  
+  .form-container {
+    width: 100%;
+    max-width: 400px; // Ajusta el ancho si es necesario
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: auto; // Empuja el logo inferior hacia abajo si hay espacio
+  }
+  
+  .preferences-list {
+    width: 100%;
+    background: transparent; // Sin fondo blanco de lista
+    margin-bottom: 20px;
+  
+    ion-item {
+      --background: transparent;
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      --min-height: 40px; // Altura mínima de item
+      margin-bottom: 5px; // Espacio entre items
+  
+      ion-label {
+        font-size: 0.95em;
+        color: var(--sportender-dark-text) !important;
+        margin-left: 10px; // Espacio después del checkbox
+      }
+  
+      ion-checkbox {
+        --size: 20px;
+        --checkbox-background-checked: var(--sportender-green);
+        --border-color: var(--sportender-input-border);
+        --border-color-checked: var(--sportender-green);
+        --checkmark-color: white; // Color de la marca interior
+         margin-right: 0; // Quita margen por defecto si es necesario
+      }
+    }
+  }
+  
+  
+  .input-group.suggestions-group {
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: left;
+  
+    .input-label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.85em;
+      color: var(--sportender-dark-text) !important;
+      padding-left: 5px;
+    }
+  
+    .custom-input {
+      // Estilos heredados/reutilizados de otros inputs
+      --background: var(--sportender-input-bg);
+      --border-radius: 10px;
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --border-color: var(--sportender-input-border);
+      --border-width: 1px;
+      --border-style: solid;
+      min-height: 40px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      color: var(--sportender-input-text) !important;
+      --color: var(--sportender-dark-text) !important;
+      --placeholder-color: var(--sportender-dark-text);
+      --placeholder-opacity: 0.6;
+    }
+  }
+  
+  .ready-text {
+     color: var(--sportender-dark-text) !important;
+     font-size: 1.1em;
+     margin-bottom: 15px;
+     font-weight: 500;
+  }
+  
+  // Botón Finalizar
+  .action-button.finish-button {
+    --border-radius: 25px;
+    height: 45px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 280px;
+    --background: var(--sportender-green);
+    --background-activated: #5ab4a1;
+    --color: white;
+    margin-bottom: 30px; // Espacio antes del logo inferior
+  }
+  
+  .bottom-logo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+    // margin-top: auto; // Empuja hacia abajo si el contenedor es flex
+    padding-top: 20px; // Añade espacio si no usa flex para empujar
+  }

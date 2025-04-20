@@ -42,11 +42,12 @@ export class LoginPage implements OnInit {
 
     // Placeholder: Navegar a una página 'home' después del intento (¡quitar esto en producción!)
     if (this.usuario && this.contrasena) {
-       this.router.navigateByUrl('/home'); // Cambia '/home' por tu ruta real post-login
+       this.router.navigateByUrl('/menu'); // Cambia '/home' por tu ruta real post-login
     } else {
       console.warn('Por favor ingresa usuario y contraseña');
       // Aquí podrías mostrar una alerta al usuario
     }
+    this.router.navigateByUrl('/menu'); 
   }
 
   goToRegister() {

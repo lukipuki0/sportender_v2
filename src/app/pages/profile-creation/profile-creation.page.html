@@ -1,0 +1,89 @@
+<ion-content class="profile-content" [fullscreen]="true">
+
+  <div class="top-right-logo">
+    SPORTENDER
+  </div>
+
+  <div class="profile-container">
+
+    <h2 class="title">Creación de perfil</h2>
+
+    <div class="form-container">
+
+      <div class="input-group">
+        <span class="input-label">Nombre</span>
+        <ion-input type="text" class="custom-input" [(ngModel)]="nombre"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Apellido</span>
+        <ion-input type="text" class="custom-input" [(ngModel)]="apellido"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">País</span>
+        <ion-input type="text" class="custom-input" [(ngModel)]="pais"></ion-input>
+        </div>
+
+      <div class="input-group">
+        <span class="input-label">Región</span>
+        <ion-input type="text" class="custom-input" [(ngModel)]="region"></ion-input>
+         </div>
+
+      <div class="input-group">
+        <span class="input-label">Comuna</span>
+        <ion-input type="text" class="custom-input" [(ngModel)]="comuna"></ion-input>
+         </div>
+
+      <div class="input-group">
+         <span class="input-label">Fecha de nacimiento</span>
+         <ion-button id="open-date-picker" fill="clear" class="date-button">
+           {{ fechaNacimiento ? (fechaNacimiento | date:'dd/MM/yyyy') : 'DD/MM/AA' }}
+           <ion-icon slot="end" name="calendar-outline"></ion-icon>
+         </ion-button>
+      </div>
+
+      <ion-modal trigger="open-date-picker" [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            presentation="date"
+            displayFormat="DD/MM/YYYY"
+            pickerFormat="DD MMM YYYY"
+            [(ngModel)]="fechaNacimiento"
+            (ionChange)="onDateChange($event)"
+            [showDefaultButtons]="true"
+            doneText="Aceptar"
+            cancelText="Cancelar">
+          </ion-datetime>
+        </ng-template>
+      </ion-modal>
+
+
+      <ion-grid>
+        <ion-row class="ion-align-items-end">
+          <ion-col size="4">
+            <div class="input-group no-margin-bottom">
+              <span class="input-label">Código</span>
+              <ion-input type="text" class="custom-input" [(ngModel)]="codigoCelular"></ion-input>
+              </div>
+          </ion-col>
+          <ion-col size="8">
+             <div class="input-group no-margin-bottom">
+              <span class="input-label">Nro celular</span>
+              <ion-input type="tel" class="custom-input" [(ngModel)]="numeroCelular"></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-button expand="block" shape="round" class="action-button continue-button" (click)="doContinue()">
+        Continuar
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+
+       <ion-button fill="clear" class="skip-button" (click)="skipStep()">
+        siguiente paso
+      </ion-button>
+
+    </div> </div> </ion-content>

@@ -4,7 +4,9 @@
     --sportender-green: #69c5b1;    // Verde principal para botones/iconos
     --sportender-dark-text: #3a7c71; // Texto oscuro (para logos/títulos)
     --sportender-input-bg: #ffffff; // Fondo de inputs
-    --sportender-input-border: #d0e0dd; // Borde sutil para inputs
+    --sportender-input-border: #d0e0dd;
+    --sportender-input-text: #000000;
+     // Borde sutil para inputs
   }
   
   ion-content.login-content {
@@ -80,6 +82,7 @@
       --border-color: var(--sportender-input-border); // Color del borde
       --border-width: 1px;
       --border-style: solid;
+      color: var(--sportender-input-text); // Color del texto
       min-height: 45px; // Altura mínima
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); // Sombra sutil opcional
     }

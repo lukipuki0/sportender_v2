@@ -1,0 +1,40 @@
+<ion-content class="preferences-content" [fullscreen]="true">
+
+  <div class="top-right-logo">
+    SPORTENDER
+  </div>
+
+  <div class="preferences-container">
+
+    <h2 class="title">Cuéntanos tus preferencias</h2>
+    <p class="subtitle">Se usará para personalizar las actividades sugeridas</p>
+
+    <div class="progress-indicator">
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="form-container">
+
+      <ion-list lines="none" class="preferences-list">
+        <ion-item *ngFor="let pref of preferenceItems">
+          <ion-label>{{ pref.label }}</ion-label>
+          <ion-checkbox slot="start" [(ngModel)]="preferences[pref.key]"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+
+      <div class="input-group suggestions-group">
+         <span class="input-label">Sugerencias</span>
+         <ion-input type="text" class="custom-input" placeholder="¿Alguna otra actividad?" [(ngModel)]="sugerencias"></ion-input>
+      </div>
+
+      <p class="ready-text">Estamos listos, comencemos.</p>
+
+      <ion-button expand="block" shape="round" class="action-button finish-button" (click)="doFinish()">
+        Finalizar
+      </ion-button>
+
+    </div> <div class="bottom-logo">
+      SPORTENDER
+    </div>
+
+  </div> </ion-content>

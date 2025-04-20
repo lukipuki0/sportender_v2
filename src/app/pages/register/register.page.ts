@@ -34,6 +34,7 @@ export class RegisterPage implements OnInit {
       console.warn('Debe aceptar los términos y condiciones.');
       // Podrías mostrar una alerta aquí
       // this.presentAlert('Error', 'Debe aceptar los términos y condiciones.');
+      
       return;
     }
 
@@ -51,7 +52,7 @@ export class RegisterPage implements OnInit {
     console.log('Confirm Password:', this.confirmPassword);
     console.log('RUT:', this.rut);
     console.log('Términos aceptados:', this.termsAccepted);
-
+    this.router.navigateByUrl('/profile-creation');
     // --- LÓGICA DE REGISTRO AQUÍ ---
     // Aquí llamarías a tu servicio de backend para crear la nueva cuenta.
     // Por ejemplo:
@@ -67,7 +68,7 @@ export class RegisterPage implements OnInit {
     // });
 
      // Placeholder: Navegar a login (simulación)
-     this.router.navigateByUrl('/login');
+     
   }
 
   goToLogin() {

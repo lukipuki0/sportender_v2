@@ -1,0 +1,99 @@
+/* src/app/app.component.scss */
+
+// Define tus variables de color aquí o asegúrate que estén globales
+// :host {
+//   --sportender-green: #69c5b1;
+//   --sportender-dark-text: #3a7c71;
+// }
+
+// Estilos para el header y título dentro del menú lateral
+ion-menu ion-header.sidemenu-header {
+    // --- Inicio de la Modificación ---
+    // Pone el fondo del header verde
+    --background: var(--sportender-green, #69c5b1);
+  
+    // Quita el borde inferior por defecto del header
+    &::after {
+      display: none;
+    }
+    // --- Fin de la Modificación ---
+  
+    ion-toolbar {
+      --background: transparent; // Toolbar transparente sobre fondo verde
+      --min-height: 60px;
+      padding-top: 10px; // Espacio sobre el título
+    }
+  
+    .sidemenu-title {
+      color: #ffffff; // Título en blanco
+      font-weight: bold;
+      font-size: 1.4em;
+      padding-left: 16px;
+      text-align: left;
+    }
+  }
+  
+  
+  // Estilo del contenido del menú (scrollable area)
+  ion-menu ion-content.sidemenu-content {
+    --background: var(--sportender-green, #69c5b1); // Fondo verde
+    // Ajusta el padding superior si el header ya añade espacio
+    --padding-top: 10px;
+    --padding-bottom: 20px;
+    --padding-start: 5px;
+    --padding-end: 5px;
+  }
+  
+  // Estilo de la lista dentro del menú
+  ion-menu ion-list {
+    padding: 0;
+    background: transparent; // Lista transparente sobre fondo verde
+  }
+  
+  // Estilo de cada item/botón del menú
+  ion-menu ion-item {
+    --background: transparent; // Item transparente por defecto
+    // --color: #ffffff; // Color general para el item (afecta a label si no tiene color propio)
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --inner-border-width: 0; // Sin línea separadora interna
+    border-radius: 8px; // Bordes redondeados
+    margin: 0 8px 8px 8px; // Margen exterior
+    font-weight: 500;
+  
+    ion-icon {
+      font-size: 1.6em;
+      margin-right: 10px;
+      // Color del icono (puedes elegir blanco o el oscuro)
+      color: #ffffff; // Iconos blancos
+      // color: var(--sportender-dark-text); // O iconos verde oscuro
+    }
+  
+    ion-label {
+      font-size: 0.9em;
+       // Color del texto (puedes elegir blanco o el oscuro)
+      color: #ffffff; // Texto blanco
+      // color: var(--sportender-dark-text); // O texto verde oscuro
+    }
+  }
+  
+  // Estilo del item seleccionado
+  ion-menu ion-item.selected {
+    // Fondo más claro para indicar selección
+    --background: rgba(255, 255, 255, 0.25);
+  
+    // Opcional: Cambiar color de icono y texto en selección si no son blancos por defecto
+    // ion-icon {
+    //   color: #ffffff;
+    // }
+    // ion-label {
+    //   color: #ffffff;
+    //   font-weight: bold; // Hacerlo bold al seleccionar
+    // }
+  }
+  
+  // Quitar/ajustar efecto hover/focus
+  ion-menu ion-item:hover, ion-menu ion-item:focus {
+     // --background-hover: rgba(255, 255, 255, 0.1); // Efecto hover muy sutil
+     --background-hover: transparent; // Sin efecto hover
+  }

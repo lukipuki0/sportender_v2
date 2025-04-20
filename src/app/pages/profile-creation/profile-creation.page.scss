@@ -1,0 +1,150 @@
+// Reutiliza o importa las variables de color si están definidas globalmente
+:host {
+    --sportender-background: #e8f5f3;
+    --sportender-green: #69c5b1;
+    --sportender-dark-text: #3a7c71; // Asegúrate que este color sea visible
+    --sportender-input-bg: #ffffff;
+    --sportender-input-border: #d0e0dd;
+    --sportender-input-text: #000000;
+  }
+  
+  ion-content.profile-content {
+    --background: var(--sportender-background);
+    position: relative;
+  }
+  
+  .top-right-logo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; // Alinear al inicio verticalmente
+    min-height: 100%;
+    padding: 40px 20px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .title {
+    color: var(--sportender-dark-text) !important;
+    font-weight: normal;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--sportender-input-border);
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 450px; // Ancho máximo del contenedor
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 450px; // Ancho máximo del formulario
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-group {
+    width: 100%;
+    margin-bottom: 15px; // Espacio estándar entre grupos
+    text-align: left;
+  
+    &.no-margin-bottom { // Clase para quitar margen en la grid
+        margin-bottom: 0;
+    }
+  
+    .input-label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.85em;
+      color: var(--sportender-dark-text) !important;
+      padding-left: 5px;
+    }
+  
+    .custom-input {
+      --background: var(--sportender-input-bg);
+      --border-radius: 10px;
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --border-color: var(--sportender-input-border);
+      --border-width: 1px;
+      --border-style: solid;
+      
+      min-height: 40px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      color: var((--sportender-input-text)) !important; // Color texto introducido
+      --color: var(--sportender-dark-text) !important; // Variable Ionic para color texto
+      --placeholder-color: var(--sportender-dark-text);
+      --placeholder-opacity: 0.6;
+    }
+  }
+  
+  // Estilo para el botón que abre el selector de fecha
+  .date-button {
+    width: 100%;
+    --background: var(--sportender-input-bg);
+    border-radius: 10px;
+    border: 1px solid var(--sportender-input-border);
+    min-height: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    color: var(--sportender-dark-text) !important;
+    --color: var(--sportender-dark-text) !important; // Color del texto/placeholder del botón
+    text-transform: none; // Evitar mayúsculas
+    justify-content: space-between; // Para icono a la derecha
+    --padding-start: 15px;
+    --padding-end: 10px;
+    font-weight: normal; // Texto normal, no bold
+  
+    ion-icon {
+      font-size: 1.2em; // Tamaño del icono calendario
+    }
+  }
+  
+  // Asegurar que la grid no tenga padding extra si no se desea
+  ion-grid {
+    width: 100%;
+    padding: 0;
+    margin-top: 15px; // Espacio antes de la fila de celular
+    margin-bottom: 25px; // Espacio después de la fila, antes del botón
+  }
+  ion-col {
+    padding: 0 5px; // Pequeño espacio entre columnas
+  
+    &:first-child {
+      padding-left: 0;
+    }
+     &:last-child {
+      padding-right: 0;
+    }
+  }
+  
+  // Botón Continuar
+  .action-button.continue-button {
+    --border-radius: 25px;
+    height: 45px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 280px;
+    --background: var(--sportender-green);
+    --background-activated: #5ab4a1;
+    --color: white;
+    margin-top: 10px; // Espacio sobre el botón
+    margin-bottom: 15px; // Espacio debajo del botón
+  }
+  
+  // Botón/Texto "siguiente paso"
+  .skip-button {
+    --color: var(--sportender-green); // Color del texto
+    --color-activated: #5ab4a1;
+    text-transform: none; // Sin mayúsculas
+    font-size: 0.9em;
+    font-weight: normal;
+  }

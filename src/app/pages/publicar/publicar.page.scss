@@ -1,0 +1,134 @@
+/* src/app/pages/publicar/publicar.page.scss */
+:host {
+    // Reutiliza tus variables de color
+    --sportender-background: #e8f5f3;
+    --sportender-green: #69c5b1;
+    --sportender-dark-text: #3a7c71;
+    --sportender-input-bg: #ffffff;
+    --sportender-input-border: #d0e0dd;
+  }
+  
+  // Estilos generales y de toolbar/logos (similares a menu.page.scss)
+  ion-toolbar.main-toolbar {
+    --background: var(--sportender-background);
+    --border-width: 0;
+  }
+  
+  .top-right-logo-main {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+  }
+  
+  ion-content.main-content {
+     --background: var(--sportender-background);
+     position: relative;
+  }
+  
+  // Contenedor específico para esta página
+  .publish-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; // Alinear arriba
+    min-height: 100%;
+    padding: 20px; // Ajusta padding
+    padding-bottom: 70px; // Espacio para logo inferior
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .title {
+    color: var(--sportender-dark-text) !important;
+    font-weight: 600;
+    font-size: 1.8em;
+    margin-top: 10px; // Espacio sobre el título
+    margin-bottom: 25px; // Espacio bajo el título
+    border-bottom: 1px solid var(--sportender-input-border);
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 500px; // Ancho máximo
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 500px; // Ancho máximo del formulario
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px; // Espacio antes del logo inferior
+  }
+  
+  // Estilos para input-group, input-label, custom-input (reutilizados)
+  .input-group {
+    width: 100%;
+    margin-bottom: 18px; // Un poco más de espacio
+    text-align: left;
+  
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+      color: var(--sportender-dark-text) !important;
+      padding-left: 5px;
+      font-weight: 500; // Labels un poco más marcados
+    }
+  
+    .custom-input, .custom-textarea { // Aplicar a ambos
+      --background: var(--sportender-input-bg);
+      --border-radius: 10px;
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --border-color: var(--sportender-input-border);
+      --border-width: 1px;
+      --border-style: solid;
+      min-height: 45px; // Altura mínima inputs
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      color: var(--sportender-dark-text) !important;
+      --color: var(--sportender-dark-text) !important;
+      --placeholder-color: var(--sportender-dark-text);
+      --placeholder-opacity: 0.5; // Placeholder más suave
+      width: 100%; // Asegurar ancho completo
+    }
+  
+    // Estilo específico para textarea
+    .custom-textarea {
+       min-height: 100px; // Altura mínima para descripción
+       --padding-top: 10px;
+       --padding-bottom: 10px;
+    }
+  }
+  
+  // Estilo botón Publicar (reutilizado)
+  .action-button.publish-button {
+    --border-radius: 25px;
+    height: 48px; // Un poco más alto
+    font-weight: bold;
+    width: 100%;
+    max-width: 280px;
+    --background: var(--sportender-green);
+    --background-activated: #5ab4a1;
+    --color: white;
+    margin-top: 20px; // Espacio sobre el botón
+  }
+  
+  // Logo inferior (reutilizado)
+  .bottom-logo-main {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+    opacity: 0.7;
+  }
+  
+  // Estilo para botón de menú (asegurar color)
+  ion-toolbar.main-toolbar ion-menu-button {
+     --color: var(--sportender-dark-text);
+  }

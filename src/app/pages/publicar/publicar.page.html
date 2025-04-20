@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="main-toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <div class="top-right-logo-main">SPORTENDER</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="main-content">
+  <div class="publish-container">
+
+    <h2 class="title">Publicar evento</h2>
+
+    <div class="form-container">
+
+      <div class="input-group">
+        <span class="input-label">Ubicación</span>
+        <ion-input type="text" class="custom-input" placeholder="Ej: Cancha sintética #3, Parque O'Higgins" [(ngModel)]="ubicacion"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Deporte</span>
+        <ion-input type="text" class="custom-input" placeholder="Ej: Fútbol, Básquetbol, Pádel" [(ngModel)]="deporte"></ion-input>
+        </div>
+
+      <div class="input-group">
+        <span class="input-label">Cupos</span>
+        <ion-input type="number" class="custom-input" placeholder="Número total de cupos" [(ngModel)]="cupos"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Cuota</span>
+        <ion-input type="number" class="custom-input" placeholder="Precio por persona (Ej: 2500)" [(ngModel)]="cuota"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Nivel</span>
+        <ion-input type="text" class="custom-input" placeholder="Ej: Principiante, Medio, Avanzado, Todos" [(ngModel)]="nivel"></ion-input>
+         </div>
+
+      <div class="input-group">
+        <span class="input-label">Descripción</span>
+        <ion-textarea class="custom-textarea" placeholder="Añade detalles adicionales sobre el evento..." [(ngModel)]="descripcion" [autoGrow]="true"></ion-textarea>
+      </div>
+
+      <ion-button expand="block" shape="round" class="action-button publish-button" (click)="doPublish()">
+        Publicar
+      </ion-button>
+
+    </div> <div class="bottom-logo-main">SPORTENDER</div>
+
+  </div> </ion-content>

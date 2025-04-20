@@ -1,0 +1,155 @@
+/* src/app/pages/menu/menu.scss */
+:host {
+    --sportender-background: #e8f5f3;
+    --sportender-green: #69c5b1;
+    --sportender-dark-text: #3a7c71;
+    --sportender-input-bg: #ffffff;
+    --sportender-input-border: #d0e0dd;
+    
+  
+    // Colores de fondo para las tarjetas basado en nivel (más suaves)
+    --level-principiante-bg-color: #e7f4e4; // Verde muy pálido
+    --level-medio-bg-color: #fff8e1; // Amarillo muy pálido
+    --level-avanzado-bg-color: #fdecea; // Rojo/rosa muy pálido
+  
+    // Colores de texto para la insignia de nivel
+     --level-principiante-text-color: #3c763d; // Verde oscuro
+     --level-medio-text-color: #8a6d3b; // Naranja/café
+     --level-avanzado-text-color: #a94442; // Rojo oscuro
+  }
+  
+  ion-toolbar.main-toolbar {
+    --background: var(--sportender-background);
+    --border-width: 0;
+    --min-height: 56px; // Altura estándar
+  }
+  
+  ion-toolbar.filters-toolbar {
+    --background: var(--sportender-background);
+    --min-height: 48px;
+    padding-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); // Sombra sutil opcional
+  
+    ion-segment {
+      --background: var(--sportender-background);
+      ion-segment-button {
+        --color: var(--sportender-dark-text);
+        --color-checked: var(--sportender-green);
+        --indicator-color: transparent; // Sin indicador de línea explícito, el color del texto cambia
+        text-transform: none;
+        font-weight: 600; // Más bold
+        max-width: 150px; // Evitar que se hagan muy anchos
+  
+        &::before { display: none; } // Quitar borde
+      }
+    }
+  }
+  
+  .top-right-logo-main {
+    color: var(--sportender-dark-text) !important;
+    //aumentar tamaño
+    font-size: 3em;
+    //poner en la parte superior derecha
+    position: absolute;
+    top: 10px;
+    right: 80px;
+    
+    // ... (igual que antes) ...
+  }
+  
+  ion-content.main-content {
+     --background: var(--sportender-background);
+     position: relative;
+  }
+  
+  .event-list {
+    background: transparent;
+    padding: 16px; // Padding general para la lista
+    padding-bottom: 70px; // Más espacio para el logo inferior
+  }
+  
+  .event-card {
+    margin-left: 0; // Sin margen lateral si la lista ya tiene padding
+    margin-right: 0;
+    margin-bottom: 16px;
+    border-radius: 10px; // Bordes más suaves
+    box-shadow: none; // Sin sombra si prefieres
+    border: 1px solid var(--sportender-input-border); // Borde sutil
+    // El fondo ahora se aplica con ngClass
+    --background: transparent; // El fondo lo da la clase de nivel
+    position: relative; // Para posicionar la insignia de nivel
+  
+    // Clases para el fondo de la tarjeta según nivel
+    &.level-bg-principiante { background-color: var(--level-principiante-bg-color); }
+    &.level-bg-medio { background-color: var(--level-medio-bg-color); }
+    &.level-bg-avanzado { background-color: var(--level-avanzado-bg-color); }
+  
+    .event-item {
+      --background: transparent; // Hereda el fondo de la tarjeta
+      --padding-start: 12px;
+      --padding-end: 12px;
+      --inner-padding-bottom: 8px;
+      --inner-padding-top: 8px;
+      align-items: flex-start; // Alinear items arriba
+    }
+  
+    .event-icon-container {
+      background-color: var(--sportender-dark-text);
+      border-radius: 8px; // Cuadrado redondeado
+      width: 48px; // Un poco más grande
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 5px; // Alinearlo un poco con el texto
+      margin-right: 12px;
+  
+      .event-icon {
+        color: white;
+        font-size: 1.9em;
+      }
+    }
+  
+    .event-details {
+      padding-top: 4px; // Pequeño espacio arriba
+      .event-title {
+        font-weight: 600; // Más bold
+        color: var(--sportender-dark-text);
+        margin-bottom: 5px;
+        font-size: 1.05em;
+        white-space: normal;
+      }
+      .event-info, .event-distance {
+        font-size: 0.8em;
+        color: #555; // Un gris un poco más oscuro
+        margin: 3px 0;
+        white-space: normal;
+      }
+      .event-distance {
+         opacity: 0.8;
+      }
+    }
+  
+    .event-level-badge {
+      position: absolute; // Posicionar absolutamente
+      top: 8px;
+      right: 8px;
+      font-size: 0.7em;
+      font-weight: 600; // Bold
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: capitalize; // Primera letra mayúscula
+  
+      // Clases para el color de texto de la insignia
+      &.level-text-principiante { color: var(--level-principiante-text-color); }
+      &.level-text-medio { color: var(--level-medio-text-color); }
+      &.level-text-avanzado { color: var(--level-avanzado-text-color); }
+    }
+  }
+  
+  
+  
+  // Quitar fondo por defecto de ion-item
+  ion-item {
+    --background: transparent;
+  }
