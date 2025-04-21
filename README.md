@@ -63,7 +63,7 @@
 ---
 ## Arquitectura de la Información 
 
-[Estructura de Navegación](https://lucid.app/lucidchart/5008d571-666a-45e5-95bd-7b9cf3a08ced/edit?viewport_loc=290%2C-603%2C2992%2C1401%2C0_0&invitationId=inv_a50a9807-806f-4a4e-aceb-a0c5dc4ed0c6)
+[Estructura de Navegación](https://lucid.app/lucidchart/5008d571-666a-45e5-95bd-7b9cf3a08ced/edit?viewport_loc=-121%2C-666%2C2992%2C1401%2C0_0&invitationId=inv_a50a9807-806f-4a4e-aceb-a0c5dc4ed0c6)
 
 ---
 
