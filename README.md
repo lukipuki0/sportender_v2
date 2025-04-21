@@ -54,10 +54,10 @@
 - **RNF1 (Rendimiento):**
   La búsqueda de eventos por proximidad debe devolver resultados en menos de 3 segundos bajo condiciones de red normales.
   
-- **RNF3 (Confiabilidad):**
+- **RNF2 (Confiabilidad):**
   La funcionalidad de geolocalización (GPS) debe tener una precisión de al menos 50 metros en áreas urbanas. La aplicación debe tener una disponibilidad del 99%.
   
-- **RNF8 (Integridad de Datos):**
+- **RNF3 (Integridad de Datos):**
   El sistema debe asegurar que el estado de los eventos (ej. cupos disponibles), los mensajes de chat y las calificaciones de usuario se actualicen de forma consistente y no se pierdan datos en caso de fallos menores o latencias.
   
 ---
