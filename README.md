@@ -73,11 +73,12 @@ Contraseña: 1qaz2wsx
 
 ---
 ## Liberías usadas con Angular
-- Bootstrap
+- Leaflet
+- date-nfs
 
 ## Tecnologías
-- **Ionic Framework** (v7+)
-- **Angular** (v15+)
+- **Ionic Framework** (v7.2.1)
+- **Angular** (v19+)
 - **TypeScript**
 - **Capacitor** (para plugins nativos, si aplica)
 - **SASS** (para estilos)
