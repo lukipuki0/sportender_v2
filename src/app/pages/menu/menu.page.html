@@ -26,7 +26,16 @@
             <h2 class="event-title">{{ event.title }}</h2>
             <p class="event-info">Hoy {{ event.time }} | Faltan {{ event.spots }} | ${{ event.price | number }} p/p</p>
             <p class="event-distance">{{ event.distance }} km</p>
-          </ion-label>
+
+            <ion-button
+              size="small"
+              fill="outline"
+              shape="round"
+              class="join-button"
+              (click)="joinEvent(event, $event)">
+              Unirse
+            </ion-button>
+            </ion-label>
           <div class="event-level-badge" [ngClass]="'level-text-' + event.levelKey">
             Nivel {{ event.level }}
           </div>

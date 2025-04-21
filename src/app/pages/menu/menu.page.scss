@@ -126,6 +126,17 @@
       .event-distance {
          opacity: 0.8;
       }
+      .join-button {
+        position: absolute; 
+        bottom: 5px;      
+        right: 0px;        
+        --color: var(--sportender-green); 
+        --border-color: var(--sportender-green);
+        --padding-start: 12px;
+        --padding-end: 12px;
+        height: 28px; // Altura del botón
+        font-size: 0.8em; // Tamaño de fuente
+      }
     }
   
     .event-level-badge {

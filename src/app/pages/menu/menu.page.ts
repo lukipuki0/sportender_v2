@@ -1,6 +1,6 @@
 // src/app/pages/menu/menu.page.ts
 import { Component, OnInit } from '@angular/core';
-
+import { AlertController } from '@ionic/angular';
 interface EventItem {
   id: number;
   type: string;
@@ -33,7 +33,7 @@ export class MenuPage implements OnInit {
   ];
   filteredEvents: EventItem[] = [];
 
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   ngOnInit() {
     this.filterEvents();
@@ -49,5 +49,20 @@ export class MenuPage implements OnInit {
     } else {
       this.filteredEvents = this.allEvents.filter(event => event.type === this.selectedSegment);
     }
+  }
+  async joinEvent(event: EventItem, clickEvent: MouseEvent) {
+    clickEvent.stopPropagation(); // Detiene la propagación del clic (buena práctica)
+
+    console.log('Intentando unirse al evento:', event.title);
+
+    const alert = await this.alertController.create({
+      header: '¡Unido!', 
+      message: `Te has unido a "${event.title}".`, 
+      buttons: ['OK'] 
+    });
+
+    await alert.present(); 
+
+    
   }
 }

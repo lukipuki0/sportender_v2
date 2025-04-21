@@ -9,10 +9,10 @@ import { RegisterPage } from './register.page';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule, // Importa FormsModule
+    FormsModule, 
     IonicModule,
     RegisterPageRoutingModule
   ],
-  declarations: [RegisterPage] // Declara el componente (NO standalone)
+  declarations: [RegisterPage] 
 })
 export class RegisterPageModule {}
