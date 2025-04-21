@@ -21,7 +21,7 @@
 ## Roles del sistema
 - **Usuario**: Quien utiliza la app para buscar, crear, ingresar, etc. a eventos deportivos.
 
-## Requerimientos Funcionales
+## Requerimientos funcionales
   
   - **RF1  Búsqueda de eventos:**
     El usuario podrá  buscar eventos activos filtrando por ubicación actual (usando GPS) y un radio de búsqueda configurable (ej. 1km, 5km, 10km).
@@ -45,7 +45,7 @@
     El usuario podrá editar los datos de su perfil.
 
 
-## Requerimientos mo funcionales
+## Requerimientos no funcionales
 
 - **RNF1 (rendimiento):**
   La búsqueda de eventos por proximidad debe devolver resultados en menos de 3 segundos bajo condiciones de red normales.
