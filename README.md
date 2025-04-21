@@ -26,7 +26,7 @@
   - **RF1  Búsqueda de eventos:**
     El usuario podrá  buscar eventos activos filtrando por ubicación actual (usando GPS) y un radio de búsqueda configurable (ej. 1km, 5km, 10km).
   
-  - **RF2  Creación de evento :**
+  - **RF2  Creación de evento:**
     El usuario podrá crear un nuevo evento, especificando: tipo de actividad, ubicación, fecha/hora de inicio (que no puede ser más allá de 12 horas desde el momento de la creación), número máximo de participantes, y una breve descripción.
     
   - **RF3 Unirse a un evento:**
@@ -35,13 +35,13 @@
   - **RF4 Ubicaciones de eventos deportivos:**
     El sistema debe mostrar las ubicaciones de los eventos cercanos al usuario para que pueda inscribirse.
     
-  - **RF5 Ver historial**
+  - **RF5 Ver historial:**
     El usuario podrá ver una lista de los eventos a los que se ha unido o que ha creado, separando los próximos de los pasados (historial).
     
-  - **RF6  Mostrar perfil**
-    El usuario podrá ver su perfil
+  - **RF6  Mostrar perfil:**
+    El usuario podrá ver su perfil.
     
-  - **RF7  Editar perfil**
+  - **RF7  Editar perfil:**
     El usuario podrá editar los datos de su perfil.
 
 
