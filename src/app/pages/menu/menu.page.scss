@@ -67,7 +67,7 @@
   }
 
   .event-list-container {
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
   }
 
@@ -156,6 +156,22 @@
   ion-item {
     --background: transparent;
   }
+
+
+/* Estilos para pantallas pequeñas (menores a 768px) */
+@media (max-width: 768px) {
+  .event-list-container {
+    width: 100%; /* Ocupa todo el ancho */
+  }
+  .event-card {
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 10px 0; /* Ajusta el margen vertical */
+  }
+  .event-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+}
   // Estilo para botón de menú (asegurar color)
   ion-toolbar.main-toolbar ion-menu-button {
     --color: var(--sportender-dark-text);
