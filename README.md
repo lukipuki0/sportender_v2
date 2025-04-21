@@ -21,11 +21,7 @@
 ## Roles del Sistema
 - **Usuario**: Quien utiliza la app para buscar, crear, ingresar, etc. a eventos deportivos.
 
-## Requerimientos Funcionales por Rol
-
-### Rol-Usuario
-
-  ## Requerimientos Funcionales
+## Requerimientos Funcionales
   
   - **RF1  Búsqueda de Eventos:**
     El usuario podrá  buscar eventos activos filtrando por ubicación actual (usando GPS) y un radio de búsqueda configurable (ej. 1km, 5km, 10km).
@@ -36,8 +32,8 @@
   - **RF3 Unirse a un Evento:**
     El usuario podrá solicitar unirse a un evento existente. El sistema debe validar que el evento no esté lleno y que cumpla cualquier otro criterio (si lo hubiera).
     
-  - **RF4 Participación en Chat de Evento:**
-    Una vez que un Usuario se une a un evento, el sistema debe darle acceso automáticamente a un chat grupal específico para ese evento, donde pueden comunicarse todos los participantes confirmados y el creador.
+  - **RF4 Ubicaciones de eventos deportivos:**
+    El sistema debe mostrar las ubicaciones de los eventos cercanos al usuario para que pueda inscribirse.
     
   - **RF5 Ver historial**
     El usuario podrá ver una lista de los eventos a los que se ha unido o que ha creado, separando los próximos de los pasados (historial).
