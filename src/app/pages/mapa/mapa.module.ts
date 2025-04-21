@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { HistorialPageRoutingModule } from './historial-routing.module';
-import { HistorialPage } from './historial.page';
+import { MapaPageRoutingModule } from './mapa-routing.module';
+import { MapaPage } from './mapa.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HistorialPageRoutingModule
+    MapaPageRoutingModule
   ],
-  declarations: [HistorialPage]
+  declarations: [MapaPage]
 })
-export class HistorialPageModule {}
+export class MapaPageModule {}

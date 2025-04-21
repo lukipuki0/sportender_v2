@@ -6,7 +6,7 @@
     --sportender-dark-text: #3a7c71;
     --sportender-input-bg: #ffffff;
     --sportender-input-border: #d0e0dd;
-    
+
   }
   
   // Estilos generales y de toolbar/logos (reutilizados)
@@ -14,9 +14,20 @@
     --background: var(--sportender-background);
     --border-width: 0;
   }
-  .top-right-logo-main { /* ... estilo reutilizado ... */ }
-  ion-content.main-content {
+  .top-right-logo-main {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sportender-dark-text);
+  }
+    ion-content.main-content {
      --background: var(--sportender-background);
+     //dar color
+
+     -color: var(--sportender-dark-text);
   }
   ion-toolbar.main-toolbar ion-menu-button { // Asegurar color botón menú
      --color: var(--sportender-dark-text);

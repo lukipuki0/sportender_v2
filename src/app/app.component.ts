@@ -14,6 +14,7 @@ export class AppComponent {
    // --- Array Modificado con los 5 botones solicitados ---
    public appPages = [
     { title: 'Buscar', url: '/menu', icon: 'location' }, // '/menu' es la página principal de búsqueda/filtros
+    { title: 'Mapa', url: '/mapa', icon: 'mapa' }, 
     { title: 'Publicar', url: '/publicar', icon: 'add-circle' }, // Página para crear un nuevo evento
     { title: 'Mis Eventos', url: '/mis-eventos', icon: 'calendar' },
     { title: 'Historial', url: '/historial', icon: 'document-text' },
@@ -22,7 +23,7 @@ export class AppComponent {
   public selectedIndex = 0;
 
   // --- Rutas donde el menú estará habilitado (actualizado) ---
-  private menuEnabledRoutes: string[] = ['/menu', '/publicar', '/mis-eventos', '/historial', '/perfil'];
+  private menuEnabledRoutes: string[] = ['/menu','/mapa', '/publicar', '/mis-eventos', '/historial', '/perfil'];
 
   constructor(
     private router: Router,

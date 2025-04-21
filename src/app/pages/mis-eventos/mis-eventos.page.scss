@@ -1,0 +1,131 @@
+/* src/app/pages/mis-eventos/mis-eventos.page.scss */
+:host {
+    // Reutiliza tus variables de color
+    --sportender-background: #e8f5f3;
+    --sportender-green: #69c5b1;
+    --sportender-dark-text: #3a7c71;
+    --sportender-input-bg: #ffffff;
+    --sportender-input-border: #d0e0dd;
+  
+    // Colores de fondo para tarjetas (igual que en menu.page.scss)
+    --level-principiante-bg-color: #e7f4e4;
+    --level-medio-bg-color: #fff8e1;
+    --level-avanzado-bg-color: #fdecea;
+  
+    // Colores de texto para insignia (igual que en menu.page.scss)
+     --level-principiante-text-color: #3c763d;
+     --level-medio-text-color: #8a6d3b;
+     --level-avanzado-text-color: #a94442;
+  }
+  
+  // Estilos generales, toolbar, logos (reutilizados)
+  ion-toolbar.main-toolbar { /* ... */ }
+  .top-right-logo-main { /* ... */ }
+  ion-content.main-content { /* ... */ }
+  ion-toolbar.main-toolbar ion-menu-button { /* ... */ }
+  
+  
+  // Contenedor específico
+  .my-events-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 80px; // Más espacio para botón y logo
+    min-height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .title { // Título "Eventos"
+    color: var(--sportender-dark-text) !important;
+    font-weight: 600;
+    font-size: 1.8em;
+    margin-top: 10px;
+    margin-bottom: 20px; // Espacio antes de subtítulo
+    border-bottom: 1px solid var(--sportender-input-border);
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 550px;
+  }
+  
+  .section-title { // Título "Eventos Actuales"
+    color: var(--sportender-dark-text) !important;
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 550px;
+    text-align: center; // O left si prefieres
+  }
+  
+  
+  // --- ESTILOS DE TARJETA (Copiados de menu.page.scss - RECOMENDADO MOVER A global.scss) ---
+  .event-list {
+    width: 100%;
+    max-width: 550px;
+    background: transparent;
+    padding: 0; // Sin padding extra en la lista misma
+    margin-bottom: 30px; // Espacio antes del botón historial
+  }
+  
+  .event-card {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--sportender-input-border);
+    --background: transparent;
+    position: relative;
+  
+    &.level-bg-principiante { background-color: var(--level-principiante-bg-color); }
+    &.level-bg-medio { background-color: var(--level-medio-bg-color); }
+    &.level-bg-avanzado { background-color: var(--level-avanzado-bg-color); }
+  
+    .event-item { /* ... (estilo idéntico a menu.page.scss) ... */ }
+    .event-icon-container { /* ... (estilo idéntico a menu.page.scss) ... */ }
+    .event-details { /* ... (estilo idéntico a menu.page.scss) ... */ }
+    .event-level-badge { /* ... (estilo idéntico a menu.page.scss) ... */ }
+  }
+  // --- FIN ESTILOS DE TARJETA ---
+  
+  .no-events-message {
+    color: #666;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  
+  // Botón Historial
+  .action-button.history-button {
+    --border-radius: 25px;
+    height: 48px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 280px;
+    --background: var(--sportender-green);
+    --background-activated: #5ab4a1;
+    --color: white;
+    margin-top: 20px;
+    margin-bottom: 40px; // Espacio antes del logo inferior
+  }
+  
+  // Logo inferior (reutilizado)
+  .bottom-logo-main { /* ... */ }
+  
+  // Re-aplicar estilos reutilizados si no están en global.scss
+  .top-right-logo-main {
+    position: absolute; top: 50%; right: 16px; transform: translateY(-50%);
+    font-size: 1.2em; font-weight: bold; color: var(--sportender-dark-text) !important;
+  }
+  ion-toolbar.main-toolbar { --background: var(--sportender-background); --border-width: 0; }
+  ion-content.main-content { --background: var(--sportender-background); position: relative; }
+  ion-toolbar.main-toolbar ion-menu-button { --color: var(--sportender-dark-text); }
+  .bottom-logo-main {
+    position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
+    font-size: 0.8em; font-weight: bold; color: var(--sportender-dark-text) !important; opacity: 0.7;
+  }
+  .event-item { --background: transparent; --padding-start: 12px; --padding-end: 12px; --inner-padding-bottom: 8px; --inner-padding-top: 8px; align-items: flex-start; }
+  .event-icon-container { background-color: var(--sportender-dark-text) !important; border-radius: 8px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; margin-top: 5px; margin-right: 12px; .event-icon { color: white; font-size: 1.9em; } }
+  .event-details { padding-top: 4px; .event-title { font-weight: 600; color: var(--sportender-dark-text) !important; margin-bottom: 5px; font-size: 1.05em; white-space: normal; } .event-info, .event-distance { font-size: 0.8em; color: #555 !important; margin: 3px 0; white-space: normal; } .event-distance { opacity: 0.8; } }
+  .event-level-badge { position: absolute; top: 8px; right: 8px; font-size: 0.7em; font-weight: 600; padding: 3px 8px; border-radius: 6px; text-transform: capitalize; &.level-text-principiante { color: var(--level-principiante-text-color); } &.level-text-medio { color: var(--level-medio-text-color); } &.level-text-avanzado { color: var(--level-avanzado-text-color); } }
