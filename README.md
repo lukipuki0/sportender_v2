@@ -1,6 +1,6 @@
 # Presentado por:
 - Lucas Erazo
-- José Lara
+- José Lara Arce
 - Pablo Silva
 - José Villamayor
 # Sportender - app de encuentros deportivos
@@ -12,24 +12,24 @@
 3. [Diseño de prototipos](#prototipo-de-diseño)
 4. [Librerías en Angular](#liberías-usadas-con-angular)
 
-## Resumen del Proyecto
+## Resumen del proyecto
   Creacion de una app donde se puedan encontrar casualmente actividades deportivas, ej. partidos de futbol, voleibol, padel, etc, (similar a la idea de tinder, pero version deportivo).
   
 ---
 ## Requerimientos
 
-## Roles del Sistema
+## Roles del sistema
 - **Usuario**: Quien utiliza la app para buscar, crear, ingresar, etc. a eventos deportivos.
 
 ## Requerimientos Funcionales
   
-  - **RF1  Búsqueda de Eventos:**
+  - **RF1  Búsqueda de eventos:**
     El usuario podrá  buscar eventos activos filtrando por ubicación actual (usando GPS) y un radio de búsqueda configurable (ej. 1km, 5km, 10km).
   
-  - **RF2  Creación de Evento :**
+  - **RF2  Creación de evento :**
     El usuario podrá crear un nuevo evento, especificando: tipo de actividad, ubicación, fecha/hora de inicio (que no puede ser más allá de 12 horas desde el momento de la creación), número máximo de participantes, y una breve descripción.
     
-  - **RF3 Unirse a un Evento:**
+  - **RF3 Unirse a un evento:**
     El usuario podrá solicitar unirse a un evento existente. El sistema debe validar que el evento no esté lleno y que cumpla cualquier otro criterio (si lo hubiera).
     
   - **RF4 Ubicaciones de eventos deportivos:**
@@ -45,19 +45,19 @@
     El usuario podrá editar los datos de su perfil.
 
 
-## Requerimientos No Funcionales
+## Requerimientos mo funcionales
 
-- **RNF1 (Rendimiento):**
+- **RNF1 (rendimiento):**
   La búsqueda de eventos por proximidad debe devolver resultados en menos de 3 segundos bajo condiciones de red normales.
   
-- **RNF2 (Confiabilidad):**
+- **RNF2 (confiabilidad):**
   La funcionalidad de geolocalización (GPS) debe tener una precisión de al menos 50 metros en áreas urbanas. La aplicación debe tener una disponibilidad del 99%.
   
-- **RNF3 (Integridad de Datos):**
+- **RNF3 (integridad de datos):**
   El sistema debe asegurar que el estado de los eventos (ej. cupos disponibles), los mensajes de chat y las calificaciones de usuario se actualicen de forma consistente y no se pierdan datos en caso de fallos menores o latencias.
   
 ---
-## Arquitectura de la Información 
+## Arquitectura de la información 
 
 Estructura de navegacion de la app Sportender -> [Estructura de Navegación](https://lucid.app/lucidchart/5008d571-666a-45e5-95bd-7b9cf3a08ced/edit?viewport_loc=-121%2C-666%2C2992%2C1401%2C0_0&invitationId=inv_a50a9807-806f-4a4e-aceb-a0c5dc4ed0c6)
 
@@ -76,7 +76,7 @@ Contraseña: 1qaz2wsx
 - **Ionic Framework** (v7.2.1)
 - **Angular** (v19+)
 - **TypeScript**
-- **Capacitor** (para plugins nativos, si aplica)
+- **Capacitor** (para plugins nativos)
 - **SASS** (para estilos)
 - **RxJS** (para manejo reactivo)
 - **Angular Router** (para navegación entre vistas)
