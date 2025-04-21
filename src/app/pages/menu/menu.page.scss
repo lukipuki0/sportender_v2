@@ -65,7 +65,12 @@
     padding: 16px; // Padding general para la lista
     padding-bottom: 70px; // Más espacio para el logo inferior
   }
-  
+
+  .event-list-container {
+    width: 40%;
+    margin: 0 auto;
+  }
+
   .event-card {
     margin-left: 0; // Sin margen lateral si la lista ya tiene padding
     margin-right: 0;

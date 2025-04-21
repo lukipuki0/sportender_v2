@@ -14,7 +14,7 @@ export class AppComponent {
    // --- Array Modificado con los 5 botones solicitados ---
    public appPages = [
     { title: 'Buscar', url: '/menu', icon: 'location' }, // '/menu' es la página principal de búsqueda/filtros
-    { title: 'Mapa', url: '/mapa', icon: 'mapa' }, 
+    { title: 'Mapa', url: '/mapa', icon: 'compass' }, 
     { title: 'Publicar', url: '/publicar', icon: 'add-circle' }, // Página para crear un nuevo evento
     { title: 'Mis Eventos', url: '/mis-eventos', icon: 'calendar' },
     { title: 'Historial', url: '/historial', icon: 'document-text' },
