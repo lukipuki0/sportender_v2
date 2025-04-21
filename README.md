@@ -13,7 +13,7 @@
 4. [Librerías en Angular](#liberías-usadas-con-angular)
 
 ## Resumen del proyecto
-  Creacion de una app donde se puedan encontrar casualmente actividades deportivas, ej. partidos de futbol, voleibol, padel, etc, (similar a la idea de tinder, pero version deportivo).
+  Creación de una app donde se puedan encontrar casualmente actividades deportivas, ej. partidos de fútbol, vóleibol, pádel, etc, (similar a la idea de tinder, pero versión deportivo).
   
 ---
 ## Requerimientos
