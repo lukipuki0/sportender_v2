@@ -63,12 +63,12 @@
 ---
 ## Arquitectura de la Información 
 
-[Estructura de Navegación](https://lucid.app/lucidchart/5008d571-666a-45e5-95bd-7b9cf3a08ced/edit?viewport_loc=-121%2C-666%2C2992%2C1401%2C0_0&invitationId=inv_a50a9807-806f-4a4e-aceb-a0c5dc4ed0c6)
+Estructura de navegacion de la app Sportender -> [Estructura de Navegación](https://lucid.app/lucidchart/5008d571-666a-45e5-95bd-7b9cf3a08ced/edit?viewport_loc=-121%2C-666%2C2992%2C1401%2C0_0&invitationId=inv_a50a9807-806f-4a4e-aceb-a0c5dc4ed0c6)
 
 ---
 
 ## Prototipo de diseño 
-Prototipo de la app sportender -> https://www.figma.com/design/rgKF6bER848KhmkPPDWvob/SPORTENDER?node-id=0-1&t=MGmwIi1nXBRG8aPb-1
+Prototipo de la app sportender -> [Prototipo Figma](https://www.figma.com/design/rgKF6bER848KhmkPPDWvob/SPORTENDER?node-id=0-1&t=MGmwIi1nXBRG8aPb-1)
 Contraseña: 1qaz2wsx
 
 ---
