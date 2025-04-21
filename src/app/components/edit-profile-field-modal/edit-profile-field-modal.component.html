@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar {{ fieldLabel }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">{{ fieldLabel }}</ion-label>
+    <ion-input [(ngModel)]="editedValue" [type]="fieldType" (keyup.enter)="save()"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="save()" class="ion-margin-top">
+    Guardar Cambios
+  </ion-button>
+</ion-content>
