@@ -13,6 +13,7 @@ import { LoginPage } from './login.page'; // Importa el componente
     IonicModule,
     LoginPageRoutingModule
   ],
-  declarations: [LoginPage] // CORRECTO para componentes NO standalone
+  declarations: [LoginPage]
 })
+
 export class LoginPageModule {}

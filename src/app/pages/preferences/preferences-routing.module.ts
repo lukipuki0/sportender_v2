@@ -5,7 +5,7 @@ import { PreferencesPage } from './preferences.page';
 
 const routes: Routes = [
   {
-    path: '', // Ruta raíz para este módulo (ej: '/preferences')
+    path: '',
     component: PreferencesPage
   }
 ];

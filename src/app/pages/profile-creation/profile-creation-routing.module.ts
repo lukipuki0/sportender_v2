@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { ProfileCreationPage } from './profile-creation.page';
 
 const routes: Routes = [
   {
-    path: '', // Ruta raíz para este módulo (ej: '/profile-creation')
+    path: '',
     component: ProfileCreationPage
   }
 ];

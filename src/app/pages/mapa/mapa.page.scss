@@ -1,8 +1,7 @@
 /* src/app/pages/mapa/mapa.page.scss */
-@import "leaflet/dist/leaflet.css"; // Importar CSS aquí también puede ayudar
+@import "leaflet/dist/leaflet.css";
 
 :host {
-  // Variables de color (reutilizadas)
   --sportender-background: #e8f5f3;
   --sportender-green: #69c5b1;
   --sportender-dark-text: #3a7c71;
@@ -10,7 +9,6 @@
   --sportender-input-border: #d0e0dd;
 }
 
-// Toolbar y logo (reutilizados)
 ion-toolbar.main-toolbar {
   --background: var(--sportender-background);
   --border-width: 0;
@@ -22,45 +20,42 @@ ion-toolbar.main-toolbar ion-menu-button {
 .top-right-logo-main { // Estilo base reutilizado
   position: absolute; top: 50%; right: 16px; transform: translateY(-50%);
   font-size: 1.2em; font-weight: bold;
-  padding: 5px 10px; // Padding para el fondo
-  border-radius: 5px; // Bordes redondeados para el fondo
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-// Clase específica para el fondo oscuro del logo en esta página
 .map-logo-bg {
   background-color: var(--sportender-dark-text);
-  color: var(--sportender-background) !important; // Texto claro sobre fondo oscuro
+  color: var(--sportender-background) !important;
 }
 
-// Hacer que el contenido y el mapa ocupen todo
 ion-content.map-content {
   --padding-start: 100;
   --padding-end: ;
   --padding-top: 100;
   --padding-bottom: 0;
-  height: calc(100% - 56px); /* Ajusta 56px si el alto del toolbar es diferente */
-  position: relative; // Para posicionar el panel de info
+  height: calc(100% - 56px);
+  position: relative;
 }
 
 #map-container {
   width: 100%;
   height: 100%;
-  background-color: #333; // Color de fondo mientras carga el mapa
-  z-index: 0; /* Asigna un z-index menor al contenedor del mapa */
+  background-color: #333;
+  z-index: 0;
 }
 
-// Panel de Información
 .info-panel {
   position: absolute; 
   top: 76px;
   right: 20px;
-  width: 300px; // Ancho del panel
-  max-height: calc(100% - 40px); // Altura máxima, dejando márgenes
-  background-color: rgba(255, 255, 255, 0.95); // Fondo blanco semi-transparente
+  width: 300px;
+  max-height: calc(100% - 40px);
+  background-color: rgba(255, 255, 255, 0.95);
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  overflow-y: auto; // Scroll si el contenido es más alto
-  z-index: 1000; // Asegurar que esté sobre el mapa
+  overflow-y: auto;
+  z-index: 1000;
 
   .info-list {
      background: transparent;
@@ -80,11 +75,10 @@ ion-content.map-content {
     --padding-start: 16px;
     --padding-end: 16px;
     --inner-padding-bottom: 10px;
-    --min-height: 70px; // Altura mínima para cada evento
+    --min-height: 70px;
     align-items: center;
 
     .info-event-icon-container {
-      // Reutiliza estilo de icono si es el mismo
       background-color: var(--sportender-dark-text);
       border-radius: 8px;
       width: 40px;
@@ -111,15 +105,14 @@ ion-content.map-content {
     .info-event-button {
         --border-color: var(--sportender-green);
         --color: var(--sportender-green);
-        height: 28px; // Botón más pequeño
+        height: 28px;
         font-size: 0.8em;
     }
   }
 }
 
-// Estilos Leaflet (puedes necesitar ajustar popups, etc.)
 .leaflet-control-attribution {
-  font-size: 10px !important; // Hacer atribución más pequeña
+  font-size: 10px !important;
 }
 
 .leaflet-top.leaflet-left {

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // ... tus otras rutas (login, register, profile-creation, preferences) ...
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
@@ -14,22 +13,18 @@ const routes: Routes = [
   {
     path: 'profile-creation',
     loadChildren: () => import('./pages/profile-creation/profile-creation.module').then( m => m.ProfileCreationPageModule)
-    // Probablemente necesites un AuthGuard aquí para proteger esta ruta
   },
   {
     path: 'preferences',
     loadChildren: () => import('./pages/preferences/preferences.module').then( m => m.PreferencesPageModule)
-     // Probablemente necesites un AuthGuard aquí
   },
-  { // <-- AÑADE ESTA RUTA PARA MENU -->
+  {
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
-     // Probablemente necesites un AuthGuard aquí
   },
-  // Ruta por defecto o redirección (ej: redirigir a login o menu)
   {
     path: '',
-    redirectTo: 'login', // O '/menu' si quieres que sea la página por defecto si estás logueado
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -56,9 +51,6 @@ const routes: Routes = [
     path: 'mapa',
     loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
   },
-  // Asegúrate de tener una ruta '**' al final si manejas rutas no encontradas
-  // { path: '**', redirectTo: 'login' }
-
 ];
 
 @NgModule({

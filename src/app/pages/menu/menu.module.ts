@@ -13,6 +13,6 @@ import { MenuPage } from './menu.page';
     IonicModule,
     MenuPageRoutingModule
   ],
-  declarations: [MenuPage] // Declara el componente
+  declarations: [MenuPage]
 })
 export class MenuPageModule {}

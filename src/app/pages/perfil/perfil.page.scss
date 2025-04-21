@@ -1,6 +1,5 @@
 /* src/app/pages/perfil/perfil.page.scss */
 :host {
-    // Reutiliza tus variables de color
     --sportender-background: #e8f5f3;
     --sportender-green: #69c5b1;
     --sportender-dark-text: #3a7c71;
@@ -9,7 +8,6 @@
 
   }
   
-  // Estilos generales y de toolbar/logos (reutilizados)
   ion-toolbar.main-toolbar {
     --background: var(--sportender-background);
     --border-width: 0;
@@ -25,17 +23,12 @@
   }
     ion-content.main-content {
      --background: var(--sportender-background);
-     //dar color
-
      -color: var(--sportender-dark-text);
   }
-  ion-toolbar.main-toolbar ion-menu-button { // Asegurar color botón menú
+  ion-toolbar.main-toolbar ion-menu-button {
      --color: var(--sportender-dark-text);
   }
   
-  
-  
-  // Contenedor específico
   .profile-container {
     display: flex;
     flex-direction: column;
@@ -54,16 +47,15 @@
     border-bottom: 1px solid var(--sportender-input-border);
     padding-bottom: 10px;
     width: 100%;
-    max-width: 550px; // Ancho máximo
+    max-width: 550px;
   }
   
-  // Área de la foto de perfil
   .profile-picture-area {
     position: relative;
     margin-bottom: 30px;
   
     .profile-icon {
-      font-size: 8rem; // Icono grande
+      font-size: 8rem;
       color: var(--sportender-green);
     }
   
@@ -71,29 +63,28 @@
       position: absolute;
       bottom: 0px;
       right: 0px;
-      --padding-start: 0; // Sin padding extra
+      --padding-start: 0;
       --padding-end: 0;
-      width: 35px; // Tamaño botón
+      width: 35px;
       height: 35px;
       --border-radius: 50%;
-      background-color: var(--sportender-dark-text); // Fondo oscuro para el botón
+      background-color: var(--sportender-dark-text);
       --background: var(--sportender-dark-text);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   
       ion-icon {
-        font-size: 1.2rem; // Tamaño icono lápiz
-        color: white; // Icono lápiz blanco
+        font-size: 1.2rem;
+        color: white;
       }
     }
   }
   
-  // Contenedor de la información
   .info-container {
     width: 100%;
-    max-width: 550px; // Ancho máximo
+    max-width: 550px;
     display: flex;
     flex-direction: column;
-    gap: 15px; // Espacio entre campos de información
+    gap: 15px;
   }
   
   .info-item {
@@ -109,34 +100,33 @@
       font-weight: 500;
     }
   
-    // Estilo para el ion-item que muestra el dato
     .info-data-item {
-      --background: var(--sportender-input-bg); // Fondo blanco como input
+      --background: var(--sportender-input-bg);
       --border-radius: 10px;
       --padding-start: 15px;
-      --padding-end: 5px; // Menos padding al final para el botón
+      --padding-end: 5px;
       --border-color: var(--sportender-input-border);
       --border-width: 1px;
       --border-style: solid;
       --min-height: 45px;
-      --inner-padding-end: 0; // Quitar padding interno al final
+      --inner-padding-end: 0;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      align-items: center; // Centrar verticalmente texto y botón
+      align-items: center;
   
       .info-data {
-        color: var(--sportender-dark-text); // Color del dato
+        color: var(--sportender-dark-text);
         font-size: 0.95em;
       }
   
       .edit-info-button {
-        --color: var(--sportender-dark-text); // Color del icono lápiz
+        --color: var(--sportender-dark-text);
         --padding-start: 5px;
         --padding-end: 5px;
-        height: 30px; // Tamaño del botón
-         margin-left: 5px;
+        height: 30px;
+        margin-left: 5px;
   
         ion-icon {
-           font-size: 1.3rem; // Tamaño icono
+           font-size: 1.3rem;
         }
       }
     }

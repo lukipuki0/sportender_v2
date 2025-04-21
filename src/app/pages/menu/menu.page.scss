@@ -6,16 +6,13 @@
     --sportender-input-bg: #ffffff;
     --sportender-input-border: #d0e0dd;
     
+    --level-principiante-bg-color: #e7f4e4;
+    --level-medio-bg-color: #fff8e1;
+    --level-avanzado-bg-color: #fdecea;
   
-    // Colores de fondo para las tarjetas basado en nivel (más suaves)
-    --level-principiante-bg-color: #e7f4e4; // Verde muy pálido
-    --level-medio-bg-color: #fff8e1; // Amarillo muy pálido
-    --level-avanzado-bg-color: #fdecea; // Rojo/rosa muy pálido
-  
-    // Colores de texto para la insignia de nivel
-     --level-principiante-text-color: #3c763d; // Verde oscuro
-     --level-medio-text-color: #8a6d3b; // Naranja/café
-     --level-avanzado-text-color: #a94442; // Rojo oscuro
+    --level-principiante-text-color: #3c763d;
+    --level-medio-text-color: #8a6d3b;
+    --level-avanzado-text-color: #a94442;
   }
   
   ion-toolbar.main-toolbar {
@@ -62,8 +59,8 @@
   
   .event-list {
     background: transparent;
-    padding: 16px; // Padding general para la lista
-    padding-bottom: 70px; // Más espacio para el logo inferior
+    padding: 16px;
+    padding-bottom: 70px;
   }
 
   .event-list-container {
@@ -72,39 +69,37 @@
   }
 
   .event-card {
-    margin-left: 0; // Sin margen lateral si la lista ya tiene padding
+    margin-left: 0;
     margin-right: 0;
     margin-bottom: 16px;
-    border-radius: 10px; // Bordes más suaves
-    box-shadow: none; // Sin sombra si prefieres
-    border: 1px solid var(--sportender-input-border); // Borde sutil
-    // El fondo ahora se aplica con ngClass
-    --background: transparent; // El fondo lo da la clase de nivel
-    position: relative; // Para posicionar la insignia de nivel
-  
-    // Clases para el fondo de la tarjeta según nivel
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid var(--sportender-input-border);
+    --background: transparent;
+    position: relative;
+
     &.level-bg-principiante { background-color: var(--level-principiante-bg-color); }
     &.level-bg-medio { background-color: var(--level-medio-bg-color); }
     &.level-bg-avanzado { background-color: var(--level-avanzado-bg-color); }
   
     .event-item {
-      --background: transparent; // Hereda el fondo de la tarjeta
+      --background: transparent;
       --padding-start: 12px;
       --padding-end: 12px;
       --inner-padding-bottom: 8px;
       --inner-padding-top: 8px;
-      align-items: flex-start; // Alinear items arriba
+      align-items: flex-start;
     }
   
     .event-icon-container {
       background-color: var(--sportender-dark-text);
-      border-radius: 8px; // Cuadrado redondeado
-      width: 48px; // Un poco más grande
+      border-radius: 8px;
+      width: 48px;
       height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 5px; // Alinearlo un poco con el texto
+      margin-top: 5px;
       margin-right: 12px;
   
       .event-icon {
@@ -112,11 +107,11 @@
         font-size: 1.9em;
       }
     }
-  
+
     .event-details {
-      padding-top: 4px; // Pequeño espacio arriba
+      padding-top: 4px;
       .event-title {
-        font-weight: 600; // Más bold
+        font-weight: 600;
         color: var(--sportender-dark-text);
         margin-bottom: 5px;
         font-size: 1.05em;
@@ -124,7 +119,7 @@
       }
       .event-info, .event-distance {
         font-size: 0.8em;
-        color: #555; // Un gris un poco más oscuro
+        color: #555;
         margin: 3px 0;
         white-space: normal;
       }
@@ -134,45 +129,38 @@
     }
   
     .event-level-badge {
-      position: absolute; // Posicionar absolutamente
+      position: absolute;
       top: 8px;
       right: 8px;
       font-size: 0.7em;
-      font-weight: 600; // Bold
+      font-weight: 600;
       padding: 3px 8px;
       border-radius: 6px;
-      text-transform: capitalize; // Primera letra mayúscula
+      text-transform: capitalize;
   
-      // Clases para el color de texto de la insignia
       &.level-text-principiante { color: var(--level-principiante-text-color); }
       &.level-text-medio { color: var(--level-medio-text-color); }
       &.level-text-avanzado { color: var(--level-avanzado-text-color); }
     }
   }
   
-  
-  
-  // Quitar fondo por defecto de ion-item
   ion-item {
     --background: transparent;
   }
 
-
-/* Estilos para pantallas pequeñas (menores a 768px) */
 @media (max-width: 768px) {
   .event-list-container {
-    width: 100%; /* Ocupa todo el ancho */
+    width: 100%;
   }
   .event-card {
-    width: 100%; /* Ocupa todo el ancho */
-    margin: 10px 0; /* Ajusta el margen vertical */
+    width: 100%;
+    margin: 10px 0;
   }
   .event-item {
     --padding-start: 10px;
     --padding-end: 10px;
   }
 }
-  // Estilo para botón de menú (asegurar color)
   ion-toolbar.main-toolbar ion-menu-button {
     --color: var(--sportender-dark-text);
  }

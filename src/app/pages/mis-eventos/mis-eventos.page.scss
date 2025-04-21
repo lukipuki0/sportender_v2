@@ -1,72 +1,61 @@
 /* src/app/pages/mis-eventos/mis-eventos.page.scss */
 :host {
-    // Reutiliza tus variables de color
     --sportender-background: #e8f5f3;
     --sportender-green: #69c5b1;
     --sportender-dark-text: #3a7c71;
     --sportender-input-bg: #ffffff;
     --sportender-input-border: #d0e0dd;
   
-    // Colores de fondo para tarjetas (igual que en menu.page.scss)
     --level-principiante-bg-color: #e7f4e4;
     --level-medio-bg-color: #fff8e1;
     --level-avanzado-bg-color: #fdecea;
   
-    // Colores de texto para insignia (igual que en menu.page.scss)
-     --level-principiante-text-color: #3c763d;
-     --level-medio-text-color: #8a6d3b;
-     --level-avanzado-text-color: #a94442;
+    --level-principiante-text-color: #3c763d;
+    --level-medio-text-color: #8a6d3b;
+    --level-avanzado-text-color: #a94442;
   }
   
-  // Estilos generales, toolbar, logos (reutilizados)
-  ion-toolbar.main-toolbar { /* ... */ }
-  .top-right-logo-main { /* ... */ }
-  ion-content.main-content { /* ... */ }
-  ion-toolbar.main-toolbar ion-menu-button { /* ... */ }
-  
-  
-  // Contenedor específico
   .my-events-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    padding-bottom: 80px; // Más espacio para botón y logo
+    padding-bottom: 80px;
     min-height: 100%;
     box-sizing: border-box;
     text-align: center;
   }
   
-  .title { // Título "Eventos"
+  .title {
     color: var(--sportender-dark-text) !important;
     font-weight: 600;
     font-size: 1.8em;
     margin-top: 10px;
-    margin-bottom: 20px; // Espacio antes de subtítulo
+    margin-bottom: 20px;
     border-bottom: 1px solid var(--sportender-input-border);
     padding-bottom: 10px;
     width: 100%;
     max-width: 550px;
   }
   
-  .section-title { // Título "Eventos Actuales"
+  .section-title {
     color: var(--sportender-dark-text) !important;
     font-weight: 500;
     font-size: 1.2em;
     margin-bottom: 20px;
     width: 100%;
     max-width: 550px;
-    text-align: center; // O left si prefieres
+    text-align: center;
   }
   
   
-  // --- ESTILOS DE TARJETA (Copiados de menu.page.scss - RECOMENDADO MOVER A global.scss) ---
+  // (RECOMENDADO MOVER A global.scss)
   .event-list {
     width: 100%;
     max-width: 550px;
     background: transparent;
-    padding: 0; // Sin padding extra en la lista misma
-    margin-bottom: 30px; // Espacio antes del botón historial
+    padding: 0;
+    margin-bottom: 30px;
   }
   
   .event-card {
@@ -81,13 +70,7 @@
     &.level-bg-principiante { background-color: var(--level-principiante-bg-color); }
     &.level-bg-medio { background-color: var(--level-medio-bg-color); }
     &.level-bg-avanzado { background-color: var(--level-avanzado-bg-color); }
-  
-    .event-item { /* ... (estilo idéntico a menu.page.scss) ... */ }
-    .event-icon-container { /* ... (estilo idéntico a menu.page.scss) ... */ }
-    .event-details { /* ... (estilo idéntico a menu.page.scss) ... */ }
-    .event-level-badge { /* ... (estilo idéntico a menu.page.scss) ... */ }
   }
-  // --- FIN ESTILOS DE TARJETA ---
   
   .no-events-message {
     color: #666;
@@ -96,7 +79,6 @@
     font-style: italic;
   }
   
-  // Botón Historial
   .action-button.history-button {
     --border-radius: 25px;
     height: 48px;
@@ -107,13 +89,10 @@
     --background-activated: #5ab4a1;
     --color: white;
     margin-top: 20px;
-    margin-bottom: 40px; // Espacio antes del logo inferior
+    margin-bottom: 40px;
   }
   
-  // Logo inferior (reutilizado)
-  .bottom-logo-main { /* ... */ }
-  
-  // Re-aplicar estilos reutilizados si no están en global.scss
+  // reaplicar estilos reutilizados si no estan en global.scss
   .top-right-logo-main {
     position: absolute; top: 50%; right: 16px; transform: translateY(-50%);
     font-size: 1.2em; font-weight: bold; color: var(--sportender-dark-text) !important;
