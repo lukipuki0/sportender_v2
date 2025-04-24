@@ -48,8 +48,6 @@
     text-align: center;
   }
   
-  
-  // (RECOMENDADO MOVER A global.scss)
   .event-list {
     width: 100%;
     max-width: 550px;
@@ -92,7 +90,6 @@
     margin-bottom: 40px;
   }
   
-  // reaplicar estilos reutilizados si no estan en global.scss
   .top-right-logo-main {
     position: absolute; top: 50%; right: 16px; transform: translateY(-50%);
     font-size: 1.2em; font-weight: bold; color: var(--sportender-dark-text) !important;
