@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",            
+    "password": "3oo92oo3",   
+    "database": "sportender_dev",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "root_password",
+    "database": "sportender_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "root_password",
+    "database": "sportender_prod",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

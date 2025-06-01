@@ -1,0 +1,77 @@
+### 1. GET todos los usuarios
+GET http://localhost:3000/api/users
+
+###
+
+### 2. POST crear un usuario
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "username": "juanperez2",
+  "email": "juanperez@example2.com",
+  "password": "otroPassword123"
+}
+
+
+###
+
+### 3. GET usuario por ID
+GET http://localhost:3000/api/users/1
+
+###
+
+### 4. PUT actualizar usuario
+PUT http://localhost:3000/api/users/1
+Content-Type: application/json
+
+{
+  "role": "admin"
+}
+
+###
+
+### 5. DELETE eliminar usuario
+DELETE http://localhost:3000/api/users/11
+
+###
+
+### 6. GET todos los eventos
+GET http://localhost:3000/api/events
+
+###
+
+### 7. POST crear un evento (asegúrate de que exista usuario con id=1)
+POST http://localhost:3000/api/events
+Content-Type: application/json
+
+{
+  "title": "Partido de Fútbol",
+  "description": "Amistoso en el parque",
+  "location": "Parque Central",
+  "sportType": "fútbol",
+  "dateTime": "2025-06-20T17:00:00Z",
+  "capacity": 10,
+  "creatorId": 1
+}
+
+###
+
+### 8. GET evento por ID
+GET http://localhost:3000/api/events/1
+
+###
+
+### 9. PUT actualizar evento
+PUT http://localhost:3000/api/events/1
+Content-Type: application/json
+
+{
+  "capacity": 12,
+  "location": "Estadio Municipal"
+}
+
+###
+
+### 10. DELETE eliminar evento
+DELETE http://localhost:3000/api/events/1

@@ -1,25 +1,32 @@
 // backend/src/server.js
-
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-dotenv.config();                  // Carga variables de entorno desde .env
+import usersRouter from './routes/users.js';
+import eventsRouter from './routes/events.js';
+
+dotenv.config();
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 
-// Middleware
-app.use(cors());                  // Habilita CORS para todas las rutas
-app.use(express.json());          // Permite parsear JSON en el body de las peticiones
-
-// Ruta de prueba
+// Ruta raíz de prueba
 app.get('/', (req, res) => {
   res.json({ message: 'API Sportender v2 OK' });
 });
 
-// Puedes añadir aquí más rutas (por ejemplo, rutas de autenticación, usuarios, eventos, etc.)
+// Rutas de Users
+app.use('/api', usersRouter);
 
-// Puerto de escucha (toma el valor de process.env.PORT o por defecto 3000)
+// Rutas de Events
+app.use('/api', eventsRouter);
+
+// Si en el futuro agregas más routers (p. ej. authRouter), harías algo parecido:
+// import authRouter from './routes/auth.js';
+// app.use('/api', authRouter);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`);
