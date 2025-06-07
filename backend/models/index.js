@@ -1,65 +1,36 @@
 // backend/models/index.js
-import fs from 'fs';
-import path from 'path';
 import Sequelize from 'sequelize';
+import UserModel from './user.js';
+import EventModel from './event.js';
+import UserEventModel from './userEvent.js';
+import { createRequire } from 'module';
 import process from 'process';
+import path from 'path';
 import url from 'url';
 
+const require = createRequire(import.meta.url);
+
+// 1) Crea la instancia de Sequelize (tu configuración ya existente)
 const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const basename = path.basename(__filename);
+const __dirname  = path.dirname(__filename);
+const env        = process.env.NODE_ENV || 'development';
+const config     = require(path.join(__dirname, '../config/config.json'))[env];
+const sequelize  = new Sequelize(config.database, config.username, config.password, config);
 
-const env = process.env.NODE_ENV || 'development';
+// 2) Define los modelos “a mano”
+const User      = UserModel(sequelize, Sequelize.DataTypes);
+const Event     = EventModel(sequelize, Sequelize.DataTypes);
+const UserEvent = UserEventModel(sequelize, Sequelize.DataTypes);
 
-// 1. Ruta absoluta al config.json
-const configPath = path.join(__dirname, '/../config/config.json');
-// 2. Leer el archivo y parsear JSON
-const configJSON = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-// 3. Tomar la sección según el entorno
-const config = configJSON[env];
+// 3) Añade cada modelo al objeto `db`
+const db = { User, Event, UserEvent };
 
-const db = {};
+// 4) Declara las asociaciones
+if (User.associate)      User.associate(db);
+if (Event.associate)     Event.associate(db);
+if (UserEvent.associate) UserEvent.associate(db);
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
-
-// Cargar cada archivo de modelo (excepto index.js)
-fs.readdirSync(__dirname)
-  .filter((file) => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js'
-    );
-  })
-  .forEach(async (file) => {
-    // Construir la ruta absoluta al archivo del modelo
-    const modelPath = path.join(__dirname, file);
-    // Convertir a file:// URL
-    const modelURL = url.pathToFileURL(modelPath).href;
-    // Importar dinámicamente usando el URL válido
-    const modelModule = await import(modelURL);
-    const model = modelModule.default(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
-
-// Ejecutar associate() para que se creen relaciones
-Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
-
+// 5) Exporta
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
 export default db;
