@@ -1,74 +1,87 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// Importa AlertController para mostrar mensajes si lo necesitas
-// import { AlertController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular'; // Importa AlertController
+import { AuthService } from '../../services/auth.service'; // Importa AuthService
+import { HttpErrorResponse } from '@angular/common/http'; // Importar HttpErrorResponse
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
-  standalone: false, // Cambia a true si el componente es standalone
-  // NO standalone: true
-  // NO imports: [...]
+  standalone: false, 
 })
 export class RegisterPage implements OnInit {
 
   // Variables para los campos del formulario
   email: string = '';
   username: string = '';
-  password?: string = ''; // Usa ? si puede ser undefined inicialmente
+  password?: string = ''; 
   confirmPassword?: string = '';
-  rut: string = '';
+  rut: string = ''; // Este campo no se envía al backend en la lógica actual
   termsAccepted: boolean = false;
 
   constructor(
     private router: Router,
-    // private alertController: AlertController // Descomenta si usas alertas
+    private alertController: AlertController, // Inyecta AlertController
+    private authService: AuthService // Inyecta AuthService
   ) { }
 
   ngOnInit() {
   }
 
-  doRegister() {
+  async doRegister() { // Marcar como async para usar await con alertas
     if (!this.termsAccepted) {
-      console.warn('Debe aceptar los términos y condiciones.');
-      // Podrías mostrar una alerta aquí
-      // this.presentAlert('Error', 'Debe aceptar los términos y condiciones.');
-      
+      this.presentAlert('Error', 'Debe aceptar los términos y condiciones.');
       return;
     }
 
     if (this.password !== this.confirmPassword) {
-      console.warn('Las contraseñas no coinciden.');
-      // Podrías mostrar una alerta aquí
-      // this.presentAlert('Error', 'Las contraseñas no coinciden.');
+      this.presentAlert('Error', 'Las contraseñas no coinciden.');
       return;
     }
 
-    console.log('Intentando registrar...');
-    console.log('Email:', this.email);
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-    console.log('Confirm Password:', this.confirmPassword);
-    console.log('RUT:', this.rut);
-    console.log('Términos aceptados:', this.termsAccepted);
-    this.router.navigateByUrl('/profile-creation');
-    // --- LÓGICA DE REGISTRO AQUÍ ---
-    // Aquí llamarías a tu servicio de backend para crear la nueva cuenta.
-    // Por ejemplo:
-    // const userData = { email: this.email, username: this.username, password: this.password, rut: this.rut };
-    // this.authService.register(userData).subscribe(success => {
-    //   if (success) {
-    //     console.log('Registro exitoso!');
-    //     this.router.navigateByUrl('/login'); // Navegar a login después del registro
-    //   } else {
-    //     console.error('Error en el registro.');
-    //     // Mostrar mensaje de error desde el backend
-    //   }
-    // });
+    // Validar que los campos requeridos por el backend existan (además de los del frontend)
+     if (!this.username || !this.email || !this.password) {
+       this.presentAlert('Error', 'Por favor complete todos los campos obligatorios (Usuario, Email, Contraseña).');
+       return;
+     }
 
-     // Placeholder: Navegar a login (simulación)
-     
+    console.log('Intentando registrar...');
+
+    // Datos a enviar al backend
+    const userData = { 
+      username: this.username,
+      email: this.email,
+      password: this.password 
+      // No enviamos confirmPassword ni rut al backend, si no están en el modelo
+    };
+
+    // Llamar al servicio de autenticación para registrar al usuario
+    this.authService.register(userData).subscribe({
+      next: (response) => {
+        // Registro exitoso
+        console.log('Registro exitoso!', response);
+        // Redirigir al usuario a la página de login
+        this.presentAlert('Éxito', 'Usuario registrado correctamente. Ahora inicie sesión.');
+        this.router.navigateByUrl('/login'); 
+      },
+      error: (errorResponse: HttpErrorResponse) => {
+        // Manejar errores del backend
+        console.error('Error en el registro:', errorResponse);
+        let errorMessage = 'Ocurrió un error durante el registro.';
+
+        if (errorResponse.error && errorResponse.error.error) {
+           // Si el backend envía un mensaje de error específico
+          errorMessage = errorResponse.error.error;
+        } else if (errorResponse.statusText) {
+           errorMessage = errorResponse.statusText;
+        } else if (errorResponse.message) {
+           errorMessage = errorResponse.message;
+        }
+
+        this.presentAlert('Error de Registro', errorMessage);
+      }
+    });
   }
 
   goToLogin() {
@@ -76,14 +89,14 @@ export class RegisterPage implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
-  // --- Helper para mostrar alertas (Opcional) ---
-  // async presentAlert(header: string, message: string) {
-  //   const alert = await this.alertController.create({
-  //     header: header,
-  //     message: message,
-  //     buttons: ['OK']
-  //   });
-  //   await alert.present();
-  // }
+  // --- Helper para mostrar alertas ---
+  async presentAlert(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
 
 }

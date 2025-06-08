@@ -66,13 +66,16 @@
               "namedChunks": true
             },
             "ci": {
-              "progress": false
+
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "allowedHosts": ["all"]
+          },
           "configurations": {
             "production": {
               "buildTarget": "app:build:production"
@@ -81,7 +84,7 @@
               "buildTarget": "app:build:development"
             },
             "ci": {
-              "progress": false
+
             }
           },
           "defaultConfiguration": "development"

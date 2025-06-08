@@ -5,6 +5,7 @@ import { EventService, Event } from '../../services/event.service';
   selector: 'app-buscar',
   templateUrl: './buscar.page.html',
   styleUrls: ['./buscar.page.scss'],
+  standalone: false,
 })
 export class BuscarPage implements OnInit {
   events: Event[] = [];

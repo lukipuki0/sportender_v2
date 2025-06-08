@@ -9,6 +9,13 @@ export default (sequelize, DataTypes) => {
         foreignKey: 'creatorId',
         as: 'creator'
       });
+
+      // Un evento pertenece a muchos usuarios a través de la tabla UserEvent
+      Event.belongsToMany(models.User, {
+        through: models.UserEvent,
+        foreignKey: 'eventId',
+        as: 'participants'
+      });
     }
   }
 

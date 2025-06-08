@@ -7,10 +7,14 @@ export interface Event {
   id: number;
   title: string;
   description: string | null;
-  address: string;           // location en tu modelo
-  sportType: string;         // nuevo campo en backend
-  dateTime: string;          // Fecha/hora ISO
-  capacity: number;          // cupos máximos
+  location: {
+    address: string;
+    lat: number;
+    lng: number;
+  };
+  activityType: string;
+  startTime: string;
+  capacity: number;
   creatorId: number;
   // Si quieres los participantes, tendrías que extender tu endpoint
 }

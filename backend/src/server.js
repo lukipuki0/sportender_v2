@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 import usersRouter from './routes/users.js';
 import eventsRouter from './routes/events.js';
+import authRouter from './routes/auth.js'; // Importar el nuevo router de autenticación
 
 dotenv.config();
 
@@ -23,9 +24,8 @@ app.use('/api', usersRouter);
 // Rutas de Events
 app.use('/api', eventsRouter);
 
-// Si en el futuro agregas más routers (p. ej. authRouter), harías algo parecido:
-// import authRouter from './routes/auth.js';
-// app.use('/api', authRouter);
+// Rutas de Autenticación
+app.use('/api', authRouter); // Usar el router de autenticación
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
