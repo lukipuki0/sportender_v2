@@ -8,10 +8,10 @@
   <ion-list *ngIf="!loading">
     <ion-item *ngFor="let event of events">
       <ion-label>
-        <h2>{{ event.activityType }}</h2>
+        <h2>{{ event.sportType }}</h2>
         <p>{{ event.description }}</p>
-        <p>Fecha: {{ event.startTime | date:'short' }}</p>
-        <p>Ubicación: {{ event.location.address || (event.location.lat + ', ' + event.location.lng) }}</p>
+        <p>Fecha: {{ event.dateTime | date:'short' }}</p>
+        <p>Ubicación: </p>
       </ion-label>
     </ion-item>
   </ion-list>
