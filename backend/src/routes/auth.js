@@ -71,6 +71,8 @@ router.post('/auth/register', async (req, res) => {
 router.post('/auth/login', async (req, res) => {
   const { email, password } = req.body;
 
+  console.log('Login attempt for email:', email); // Log email
+
   // 1. Validar campos obligatorios
   if (!email || !password) {
     return res.status(400).json({ error: 'Faltan campos obligatorios (email, password)' });
@@ -80,8 +82,18 @@ router.post('/auth/login', async (req, res) => {
     // 2. Buscar el usuario por email
     const user = await db.User.findOne({ where: { email } });
 
+    console.log('User found:', user ? user.email : 'None'); // Log if user found
+
     // 3. Verificar si el usuario existe y si la contraseña es correcta
-    if (!user || !(await bcrypt.compare(password, user.password))) {
+    if (!user) {
+      // Usamos un mensaje genérico para no dar pistas sobre si el usuario existe o no
+      return res.status(401).json({ error: 'Credenciales inválidas.' });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    console.log('Password match result:', passwordMatch); // Log password comparison result
+
+    if (!passwordMatch) {
       // Usamos un mensaje genérico para no dar pistas sobre si el usuario existe o no
       return res.status(401).json({ error: 'Credenciales inválidas.' });
     }
