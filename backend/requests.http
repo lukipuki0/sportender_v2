@@ -1,9 +1,7 @@
-### 1. GET todos los usuarios
 GET http://localhost:3000/api/users
 
-###
 
-### 2. POST crear un usuario
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -14,14 +12,11 @@ Content-Type: application/json
 }
 
 
-###
 
-### 3. GET usuario por ID
 GET http://localhost:3000/api/users/1
 
 ###
 
-### 4. PUT actualizar usuario
 PUT http://localhost:3000/api/users/1
 Content-Type: application/json
 
@@ -29,19 +24,12 @@ Content-Type: application/json
   "role": "admin"
 }
 
-###
-
-### 5. DELETE eliminar usuario
 DELETE http://localhost:3000/api/users/11
 
-###
 
-### 6. GET todos los eventos
 GET http://localhost:3000/api/events
 
-###
 
-### 7. POST crear un evento (asegúrate de que exista usuario con id=1)
 POST http://localhost:3000/api/events
 Content-Type: application/json
 
@@ -55,14 +43,10 @@ Content-Type: application/json
   "creatorId": 1
 }
 
-###
 
-### 8. GET evento por ID
 GET http://localhost:3000/api/events/1
 
-###
 
-### 9. PUT actualizar evento
 PUT http://localhost:3000/api/events/1
 Content-Type: application/json
 
@@ -71,7 +55,5 @@ Content-Type: application/json
   "location": "Estadio Municipal"
 }
 
-###
 
-### 10. DELETE eliminar evento
 DELETE http://localhost:3000/api/events/1

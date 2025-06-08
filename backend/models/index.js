@@ -10,27 +10,22 @@ import url from 'url';
 
 const require = createRequire(import.meta.url);
 
-// 1) Crea la instancia de Sequelize (tu configuración ya existente)
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const env        = process.env.NODE_ENV || 'development';
 const config     = require(path.join(__dirname, '../config/config.json'))[env];
 const sequelize  = new Sequelize(config.database, config.username, config.password, config);
 
-// 2) Define los modelos “a mano”
 const User      = UserModel(sequelize, Sequelize.DataTypes);
 const Event     = EventModel(sequelize, Sequelize.DataTypes);
 const UserEvent = UserEventModel(sequelize, Sequelize.DataTypes);
 
-// 3) Añade cada modelo al objeto `db`
 const db = { User, Event, UserEvent };
 
-// 4) Declara las asociaciones
 if (User.associate)      User.associate(db);
 if (Event.associate)     Event.associate(db);
 if (UserEvent.associate) UserEvent.associate(db);
 
-// 5) Exporta
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 export default db;

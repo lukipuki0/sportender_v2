@@ -37,7 +37,7 @@ export default {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Users',   // Debe coincidir con la tabla de usuarios
+          model: 'Users',   
           key: 'id'
         },
         onUpdate: 'CASCADE',

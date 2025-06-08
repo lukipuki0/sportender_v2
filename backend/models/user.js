@@ -4,13 +4,11 @@ import { Model } from 'sequelize';
 export default (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // Un usuario tiene muchos eventos que ha creado
       User.hasMany(models.Event, {
         foreignKey: 'creatorId',
         as: 'createdEvents'
       });
 
-      // Un usuario pertenece a muchos eventos a través de la tabla UserEvent
       User.belongsToMany(models.Event, {
         through: models.UserEvent,
         foreignKey: 'userId',

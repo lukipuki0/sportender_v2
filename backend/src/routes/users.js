@@ -4,10 +4,6 @@ import db from '../../models/index.js';
 
 const router = express.Router();
 
-/**
- * GET /api/users
- * Devuelve todos los usuarios (sin el campo password).
- */
 router.get('/users', async (req, res) => {
   try {
     const allUsers = await db.User.findAll({
@@ -20,10 +16,7 @@ router.get('/users', async (req, res) => {
   }
 });
 
-/**
- * GET /api/users/:id
- * Devuelve un usuario por su ID.
- */
+
 router.get('/users/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -40,11 +33,7 @@ router.get('/users/:id', async (req, res) => {
   }
 });
 
-/**
- * POST /api/users
- * Crea un nuevo usuario.
- * Body esperado: { username, email, password, role? }
- */
+
 router.post('/users', async (req, res) => {
   const { username, email, password, role } = req.body;
   if (!username || !email || !password) {
@@ -57,12 +46,10 @@ router.post('/users', async (req, res) => {
       password,
       role: role || 'user'
     });
-    // No devolvemos password en la respuesta:
     const { id, username: u, email: e, role: r, createdAt, updatedAt } = newUser;
     return res.status(201).json({ id, username: u, email: e, role: r, createdAt, updatedAt });
   } catch (error) {
     console.error(error);
-    // Si la causa es clave única duplicada (username/email), devolvemos 409
     if (error.name === 'SequelizeUniqueConstraintError') {
       return res.status(409).json({ error: 'El email o username ya existe' });
     }
@@ -70,11 +57,6 @@ router.post('/users', async (req, res) => {
   }
 });
 
-/**
- * PUT /api/users/:id
- * Actualiza un usuario existente (puede modificar username, email, password o role).
- * Body: { username?, email?, password?, role? }
- */
 router.put('/users/:id', async (req, res) => {
   const { id } = req.params;
   const updates = req.body;
@@ -83,9 +65,7 @@ router.put('/users/:id', async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'Usuario no encontrado' });
     }
-    // Actualizamos solo los campos que vengan en el body
     await user.update(updates);
-    // Devolvemos nuevamente sin password
     const { username, email, role, createdAt, updatedAt } = user;
     return res.json({ id: user.id, username, email, role, createdAt, updatedAt });
   } catch (error) {
@@ -97,10 +77,7 @@ router.put('/users/:id', async (req, res) => {
   }
 });
 
-/**
- * DELETE /api/users/:id
- * Elimina un usuario por su ID.
- */
+
 router.delete('/users/:id', async (req, res) => {
   const { id } = req.params;
   try {
