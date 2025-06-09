@@ -4,10 +4,15 @@ import { Model } from 'sequelize';
 export default (sequelize, DataTypes) => {
   class Event extends Model {
     static associate(models) {
-      // Un Event pertenece a un User (creador)
       Event.belongsTo(models.User, {
         foreignKey: 'creatorId',
         as: 'creator'
+      });
+
+      Event.belongsToMany(models.User, {
+        through: models.UserEvent,
+        foreignKey: 'eventId',
+        as: 'participants'
       });
     }
   }
@@ -42,7 +47,7 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Users',   // nombre de la tabla Users
+          model: 'Users',  
           key: 'id'
         },
         onUpdate: 'CASCADE',

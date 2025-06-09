@@ -4,7 +4,16 @@ import { Model } from 'sequelize';
 export default (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // Ejemplo más adelante: User.hasMany(models.Event, { foreignKey: 'creatorId' });
+      User.hasMany(models.Event, {
+        foreignKey: 'creatorId',
+        as: 'createdEvents'
+      });
+
+      User.belongsToMany(models.Event, {
+        through: models.UserEvent,
+        foreignKey: 'userId',
+        as: 'participatingEvents'
+      });
     }
   }
   User.init(

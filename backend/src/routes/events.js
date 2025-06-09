@@ -1,13 +1,11 @@
 // backend/src/routes/events.js
 import express from 'express';
 import db from '../../models/index.js';
+import auth from '../middleware/auth.js'; 
 
 const router = express.Router();
 
-/**
- * GET /api/events
- * Devuelve todos los eventos (con información básica de creador).
- */
+
 router.get('/events', async (req, res) => {
   try {
     const allEvents = await db.Event.findAll({
@@ -26,10 +24,6 @@ router.get('/events', async (req, res) => {
   }
 });
 
-/**
- * GET /api/events/:id
- * Devuelve un evento por su ID (con datos de creador).
- */
 router.get('/events/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -52,31 +46,24 @@ router.get('/events/:id', async (req, res) => {
   }
 });
 
-/**
- * POST /api/events
- * Crea un nuevo evento.
- * Body: { title, description?, location, sportType, dateTime, capacity, creatorId }
- */
-router.post('/events', async (req, res) => {
-  const { title, description, location, sportType, dateTime, capacity, creatorId } = req.body;
-  if (!title || !location || !sportType || !dateTime || !capacity || !creatorId) {
-    return res.status(400).json({ error: 'Faltan campos obligatorios' });
-  }
-  try {
-    // Validar que el creatorId existe
-    const user = await db.User.findByPk(creatorId);
-    if (!user) {
-      return res.status(404).json({ error: 'Usuario creador no existe' });
-    }
 
+router.post('/events', auth, async (req, res) => { 
+  const { title, description, location, sportType, dateTime, capacity } = req.body;
+
+  if (!title || !location || !sportType || !dateTime || !capacity) {
+    return res.status(400).json({ error: 'Faltan campos obligatorios (title, location, sportType, dateTime, capacity)' });
+  }
+
+  try {
+  
     const newEvent = await db.Event.create({
       title,
       description: description || null,
       location,
       sportType,
-      dateTime,   // Debe ser formato ISO (ej. "2025-06-15T18:30:00Z")
+      dateTime,   
       capacity,
-      creatorId
+      creatorId   
     });
     return res.status(201).json(newEvent);
   } catch (error) {
@@ -85,26 +72,20 @@ router.post('/events', async (req, res) => {
   }
 });
 
-/**
- * PUT /api/events/:id
- * Actualiza un evento existente (todos o algunos campos).
- * Body: { title?, description?, location?, sportType?, dateTime?, capacity?, creatorId? }
- */
-router.put('/events/:id', async (req, res) => {
-  const { id } = req.params;
+router.put('/events/:id', auth, async (req, res) => { 
   const updates = req.body;
+  const userId = req.user.id; 
+
   try {
     const event = await db.Event.findByPk(id);
     if (!event) {
       return res.status(404).json({ error: 'Evento no encontrado' });
     }
-    // Si vienen cambios en creatorId, validar que exista
+
     if (updates.creatorId) {
-      const user = await db.User.findByPk(updates.creatorId);
-      if (!user) {
-        return res.status(404).json({ error: 'Usuario creador no existe' });
-      }
+      delete updates.creatorId;
     }
+
     await event.update(updates);
     return res.json(event);
   } catch (error) {
@@ -113,13 +94,18 @@ router.put('/events/:id', async (req, res) => {
   }
 });
 
-/**
- * DELETE /api/events/:id
- * Elimina un evento por su ID.
- */
-router.delete('/events/:id', async (req, res) => {
+
+router.delete('/events/:id', auth, async (req, res) => { // <- Aplicar middleware 'auth' aquí
   const { id } = req.params;
+  const userId = req.user.id; // ID del usuario autenticado
+
   try {
+    const event = await db.Event.findByPk(id);
+    if (!event) {
+      return res.status(404).json({ error: 'Evento no encontrado' });
+    }
+
+
     const rowsDeleted = await db.Event.destroy({ where: { id } });
     if (rowsDeleted === 0) {
       return res.status(404).json({ error: 'Evento no encontrado' });

@@ -5,7 +5,7 @@ import { EventService, Event } from '../../services/event.service';
   selector: 'app-buscar',
   templateUrl: './buscar.page.html',
   styleUrls: ['./buscar.page.scss'],
-  standalone: false, // Cambia a true si estás usando Angular Standalone Components
+  standalone: false,
 })
 export class BuscarPage implements OnInit {
   events: Event[] = [];
