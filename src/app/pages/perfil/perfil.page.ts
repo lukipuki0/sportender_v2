@@ -198,4 +198,65 @@ export class PerfilPage implements OnInit {
     await alert.present();
   }
 
+  // --- Métodos para eliminar cuenta ---
+  async confirmAndDeleteAccount() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar Eliminación',
+      message: '¿Está seguro de que desea eliminar su cuenta? Esta acción es irreversible.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Eliminación cancelada');
+          }
+        }, {
+          text: 'Eliminar',
+          cssClass: 'danger', // Opcional: para que el botón sea rojo
+          handler: () => {
+            this.deleteAccount(); // Llamar al método de eliminación si se confirma
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  deleteAccount() {
+    if (!this.currentUser || this.currentUser.id === undefined) {
+      console.error('No hay usuario autenticado o ID de usuario no disponible.');
+      this.presentAlert('Error', 'No se pudo identificar al usuario para eliminar.');
+      return;
+    }
+
+    const userIdToDelete = this.currentUser.id;
+
+    this.userService.deleteUser(userIdToDelete).subscribe({
+      next: () => {
+        console.log(`Usuario ${userIdToDelete} eliminado con éxito.`);
+        this.presentAlert('Cuenta Eliminada', 'Su cuenta ha sido eliminada correctamente.').then(() => {
+           // Luego de mostrar la alerta, cerrar sesión y redirigir
+           this.authService.logout().then(() => {
+             this.router.navigateByUrl('/login', { replaceUrl: true });
+           });
+        });
+      },
+      error: (errorResponse: HttpErrorResponse) => {
+        console.error('Error al eliminar usuario:', errorResponse);
+        let errorMessage = 'Ocurrió un error al intentar eliminar su cuenta.';
+
+        if (errorResponse.error && errorResponse.error.error) {
+           errorMessage = errorResponse.error.error;
+        } else if (errorResponse.statusText) {
+           errorMessage = errorResponse.statusText;
+        } else if (errorResponse.message) {
+           errorMessage = errorResponse.message;
+        }
+
+        this.presentAlert('Error de Eliminación', errorMessage);
+      }
+    });
+  }
 }
