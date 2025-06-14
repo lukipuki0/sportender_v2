@@ -1,4 +1,54 @@
 /* src/app/components/edit-profile-field-modal/edit-profile-field-modal.component.scss */
-ion-button {
-    --background: var(--sportender-green); // Usar color principal para guardar
+:host {
+  --sportender-background: #e8f5f3;
+  --sportender-green: #69c5b1;
+  --sportender-dark-text: #3a7c71;
+  --sportender-input-bg: #ffffff;
+  --sportender-input-border: #d0e0dd;
+}
+
+.main-toolbar {
+  --background: var(--sportender-background);
+  --border-width: 0;
+}
+
+.modal-title {
+  color: var(--sportender-dark-text);
+  font-weight: bold;
+}
+
+.cancel-button {
+  color: var(--sportender-dark-text);
+}
+
+.main-content {
+  --background: var(--sportender-background);
+  color: var(--sportender-dark-text);
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+ion-item {
+  --background: var(--sportender-input-bg);
+  --border-color: var(--sportender-input-border);
+  --border-style: solid;
+  --border-width: 1px;
+  --border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.input-label {
+  color: var(--sportender-dark-text);
+}
+
+.input-field {
+  color: var(--sportender-dark-text);
+}
+
+.save-button {
+  --background: var(--sportender-green);
+  color: white;
+  font-weight: bold;
 }
