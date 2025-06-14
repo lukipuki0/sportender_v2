@@ -53,21 +53,18 @@ export class LoginPage implements OnInit {
         // El token ya se guardó en el AuthService, redirigir al menú principal
         this.router.navigateByUrl('/menu', { replaceUrl: true }); // replaceUrl: para que el usuario no pueda volver a login con el botón back
       },
-      error: (errorResponse: HttpErrorResponse) => {
-        // Manejar errores del backend (ej. credenciales inválidas)
-        console.error('Error en el inicio de sesión:', errorResponse);
-        let errorMessage = 'Ocurrió un error durante el inicio de sesión.';
-
-        if (errorResponse.error && errorResponse.error.error) {
-           // Si el backend envía un mensaje de error específico
-          errorMessage = errorResponse.error.error;
-        } else if (errorResponse.statusText) {
-           errorMessage = errorResponse.statusText;
-        } else if (errorResponse.message) {
-           errorMessage = errorResponse.message;
+      error: (err) => {
+        console.error('Error en el inicio de sesión:', err);
+        let message = err;
+        if (err === 'Too many requests. Please try again later.') {
+          message = 'Demasiados intentos de inicio de sesión. Inténtalo de nuevo más tarde.';
+        } else if (err === 'Invalid credentials.') {
+          message = 'Credenciales inválidas.';
+        } else if (err === 'Something bad happened; please try again later.') {
+          message = 'Ocurrió un error durante el inicio de sesión.';
         }
-        
-        this.presentAlert('Error de Inicio de Sesión', errorMessage);
+
+        this.presentAlert('Error de inicio de sesión', message);
       }
     });
   }

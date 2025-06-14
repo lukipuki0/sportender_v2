@@ -222,19 +222,30 @@ El equipo de Sportender`;
 
     // Error handling function
     private handleError(error: HttpErrorResponse) {
+        let errorMessage = 'Something bad happened; please try again later.';
+
         if (error.error instanceof ErrorEvent) {
             // A client-side or network error occurred.
             console.error('An error occurred:', error.error.message);
+            errorMessage = `An error occurred: ${error.error.message}`; // Set more specific client-side error
         } else {
             // The backend returned an unsuccessful response code.
             console.error(
                 `Backend returned code ${error.status}, ` +
-                `body was: ${error.error}`
+                `body was: ${JSON.stringify(error.error)}`
             );
+            if (typeof error.error === 'string') {
+              errorMessage = error.error; // Use backend error message directly
+            } else if (error.status === 429) {
+              errorMessage = 'Too many requests. Please try again later.'; // Specific rate limit message
+            } else if (error.error && error.error.error){
+              errorMessage = error.error.error;
+            }
+            else {
+              errorMessage = `Backend returned code ${error.status}, body was: ${JSON.stringify(error.error)}`; // More detailed message
+            }
         }
         // Return an observable with a user-facing error message
-        return throwError(
-            'Something bad happened; please try again later.'
-        );
+        return throwError(() => errorMessage); // Pass the error message to throwError
     }
 }
