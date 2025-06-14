@@ -29,26 +29,25 @@ if (serviceAccount) {
 const app = express();
 
 // Configuración segura de CORS
-//const allowedOrigins = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : ['http://localhost:4200']; // Permite múltiples orígenes separados por coma
+const allowedOrigins = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : ['http://localhost:4200', 'http://localhost:8100']; // Permite múltiples orígenes separados por coma
 
-//const corsOptions = {
-//  origin: function (origin, callback) {
-//    // Permitir solicitudes sin origen (como apps móviles o herramientas como Postman) en desarrollo,
-//    // pero es mejor ser estricto en producción.
-//    if (!origin || allowedOrigins.includes(origin)) {
-//      callback(null, true);
-//    } else {
-//      callback(new Error('Not allowed by CORS'));
-//    }
-//  },
-//  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
-//  allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
-//  credentials: true // Permite el envío de cookies o encabezados de autorización con la solicitud cross-origin
-//};
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permitir solicitudes sin origen (como apps móviles o herramientas como Postman) en desarrollo,
+    // pero es mejor ser estricto en producción.
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
+  credentials: true // Permite el envío de cookies o encabezados de autorización con la solicitud cross-origin
+};
 
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-app.use(cors());
 app.use(express.json());
 
 // Ruta raíz de prueba

@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="map-content" [scrollY]="false">
-  <div id="map-container"></div>
+<ion-content [fullscreen]="true" class="map-content">
+  <div id="map-container" style="height: 100%; width: 100%;"></div>
 
   <div class="info-panel">
     <ion-list lines="none" class="info-list">
@@ -17,15 +17,15 @@
       </ion-list-header>
 
       <ion-item *ngFor="let event of nearbyEvents" class="info-event-item">
-         <div class="info-event-icon-container" slot="start">
-            <ion-icon [name]="event.icon + '-outline'" class="info-event-icon"></ion-icon>
-          </div>
-          <ion-label>
-            <h3 class="info-event-title">{{ event.title }}</h3>
-            <p class="info-event-details">Hora: {{event.time}} | Cupos: {{event.spots}}</p>
-            <p class="info-event-details">CLP ${{event.price | number}}</p>
-          </ion-label>
-          <ion-button fill="outline" size="small" slot="end" class="info-event-button">Ver</ion-button>
+        <div class="info-event-icon-container" slot="start">
+          <ion-icon [name]="event.icon + '-outline'" class="info-event-icon"></ion-icon>
+        </div>
+        <ion-label>
+          <h3 class="info-event-title">{{ event.title }}</h3>
+          <p class="info-event-details">Hora: {{event.time}} | Cupos: {{event.spots}}</p>
+          <p class="info-event-details">CLP ${{event.price | number}}</p>
+        </ion-label>
+        <ion-button fill="outline" size="small" slot="end" class="info-event-button">Ver</ion-button>
       </ion-item>
 
     </ion-list>

@@ -16,13 +16,13 @@
 
     <div class="form-container">
       <div class="input-group">
-        <span class="input-label">Correo electrónico</span>
-        <ion-input type="text" class="custom-input" placeholder="Ingresa tu usuario" [(ngModel)]="email" (keyup.enter)="doLogin()"></ion-input>
+        <label class="input-label" for="email">Correo electrónico</label>
+        <ion-input type="text" class="custom-input" placeholder="Ingresa tu correo electrónico" [(ngModel)]="email" (keyup.enter)="doLogin()" id="email"></ion-input>
       </div>
 
       <div class="input-group">
-        <span class="input-label">Contraseña</span>
-        <ion-input type="password" class="custom-input" placeholder="Ingresa tu contraseña" [(ngModel)]="password" (keyup.enter)="doLogin()"></ion-input>
+        <label class="input-label" for="password">Contraseña</label>
+        <ion-input type="password" class="custom-input" placeholder="Ingresa tu contraseña" [(ngModel)]="password" (keyup.enter)="doLogin()" id="password"></ion-input>
       </div>
 
       <ion-button expand="block" shape="round" class="login-button" (click)="doLogin()">
