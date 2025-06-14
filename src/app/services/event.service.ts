@@ -7,16 +7,19 @@ export interface Event {
   id: number;
   title: string;
   description: string | null;
-  location: {
-    address: string;
-    lat: number;
-    lng: number;
-  };
-  activityType: string;
-  startTime: string;
+  location: string; // Backend guarda location como string
+  sportType: string;
+  dateTime: string;
   capacity: number;
   creatorId: number;
-  // Si quieres los participantes, tendrías que extender tu endpoint
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Define una interfaz para la respuesta esperada del backend al crear un evento
+export interface CreateEventResponse extends Event {
+  notificationStatus?: string;
+  notificationMessage?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -46,8 +49,8 @@ export class EventService {
   }
 
   /** RF2: crear evento (POST /api/events) */
-  createEvent(data: Partial<Event>): Observable<Event> {
-    return this.http.post<Event>(this.apiUrl, data);
+  createEvent(data: Partial<Event>): Observable<CreateEventResponse> {
+    return this.http.post<CreateEventResponse>(this.apiUrl, data);
   }
 
   /** RF3: unirse (POST /api/events/:id/join) */

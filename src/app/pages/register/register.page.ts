@@ -8,14 +8,14 @@ import { HttpErrorResponse } from '@angular/common/http'; // Importar HttpErrorR
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
-  standalone: false, 
+  standalone: false,
 })
 export class RegisterPage implements OnInit {
 
   // Variables para los campos del formulario
   email: string = '';
   username: string = '';
-  password?: string = ''; 
+  password?: string = '';
   confirmPassword?: string = '';
   rut: string = ''; // Este campo no se envía al backend en la lógica actual
   termsAccepted: boolean = false;
@@ -35,25 +35,35 @@ export class RegisterPage implements OnInit {
       return;
     }
 
+    if (!this.username || !this.email || !this.password || !this.rut) {
+       this.presentAlert('Error', 'Por favor complete todos los campos obligatorios.');
+       return;
+     }
+
     if (this.password !== this.confirmPassword) {
       this.presentAlert('Error', 'Las contraseñas no coinciden.');
       return;
     }
 
-    // Validar que los campos requeridos por el backend existan (además de los del frontend)
-     if (!this.username || !this.email || !this.password) {
-       this.presentAlert('Error', 'Por favor complete todos los campos obligatorios (Usuario, Email, Contraseña).');
-       return;
-     }
+    // Frontend validation
+    if (!this.validateRut(this.rut)) {
+      this.presentAlert('Error', 'El formato del RUT no es válido.');
+      return;
+    }
+
+    if (!this.validatePassword(this.password)) {
+      this.presentAlert('Error', 'La contraseña debe tener al menos 8 caracteres, incluyendo un número.');
+      return;
+    }
 
     console.log('Intentando registrar...');
 
     // Datos a enviar al backend
-    const userData = { 
+    const userData = {
       username: this.username,
       email: this.email,
-      password: this.password 
-      // No enviamos confirmPassword ni rut al backend, si no están en el modelo
+      password: this.password,
+      rut: this.rut // Include RUT as per the requirement for validation
     };
 
     // Llamar al servicio de autenticación para registrar al usuario
@@ -63,7 +73,7 @@ export class RegisterPage implements OnInit {
         console.log('Registro exitoso!', response);
         // Redirigir al usuario a la página de login
         this.presentAlert('Éxito', 'Usuario registrado correctamente. Ahora inicie sesión.');
-        this.router.navigateByUrl('/login'); 
+        this.router.navigateByUrl('/login');
       },
       error: (errorResponse: HttpErrorResponse) => {
         // Manejar errores del backend
@@ -97,6 +107,47 @@ export class RegisterPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  // --- Frontend Validation Helpers ---
+  validateRut(rut: string): boolean {
+    if (!rut) {
+      return false;
+    }
+
+    // Remove dots and hyphens
+    rut = rut.replace(/\./g, '').replace('-', '');
+
+    // Separate body and verifier digit
+    const body = rut.slice(0, -1);
+    const dv = rut.slice(-1).toUpperCase();
+
+    // Check if body is a number
+    if (!/^\d+$/.test(body)) {
+      return false;
+    }
+
+    // Calculate expected verifier digit
+    let sum = 0;
+    let multiplier = 2;
+    for (let i = body.length - 1; i >= 0; i--) {
+      sum += parseInt(body[i], 10) * multiplier;
+      multiplier = multiplier < 7 ? multiplier + 1 : 2;
+    }
+
+    const remainder = sum % 11;
+    const expectedDv = 11 - remainder === 11 ? '0' : (11 - remainder === 10 ? 'K' : (11 - remainder).toString());
+
+    return expectedDv === dv;
+  }
+
+  validatePassword(password: string | undefined): boolean {
+    if (!password) {
+      return false;
+    }
+    // Minimum 8 characters, at least one number
+    const passwordRegex = /^(?=.*\d).{8,}$/;
+    return passwordRegex.test(password);
   }
 
 }
